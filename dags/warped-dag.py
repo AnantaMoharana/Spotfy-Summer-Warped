@@ -82,7 +82,6 @@ with DAG(
 
     )
 
-####################
     #Validate and put Song Fact in S3
     with TaskGroup('ValidateAndLoadSongFact') as PrepareLoadSongFact:
         #Validate the song fact
@@ -108,7 +107,7 @@ with DAG(
             dag=dag
         )
         validate_song_fact >> stage_song_fact
-####################
+        
     #Validate and put Song Dim in S3
     with TaskGroup('ValidateAndLoadSongDim') as PrepareLoadSongDim:
         #Validate the song dimenesion
@@ -134,7 +133,7 @@ with DAG(
             dag=dag
         )
         validate_song_dim >> stage_song_dim
-####################
+
     #Validate and put Song Artist Bridge in S3
     with TaskGroup('ValidateAndLoadSongArtistBridge') as PrepareSongArtistBridge:
         #Validate the song dimenesion
@@ -160,7 +159,7 @@ with DAG(
             dag=dag
         )
         validate_song_artist_bridge >> stage_song_artist_bridge
-####################
+        
   #Validate and put Artist Fact in S3
     with TaskGroup('ValidateAndLoadArtistFact') as PrepareArtistFact:
         #Validate the artist fact
@@ -187,8 +186,7 @@ with DAG(
         )
         validate_artist_fact >> stage_artist_fact
 
-####################
-    #Validate and put Artist Genre in S3
+    #Validate and put Artist Dim in S3
     with TaskGroup('ValidateAndLoadArtistDim') as PrepareArtistDim:
         #Validate the artist dim
         validate_artist_dim=PythonOperator(
@@ -213,10 +211,10 @@ with DAG(
             dag=dag
         )
         validate_artist_dim  >> stage_artist_dim
-####################
-    #Validate and put Artist Genre in S3
+        
+    #Load the Data into the database
     with TaskGroup('LoadData') as LoadDatabase:
-        #Validate the artist dim
+        #Load the song dim
         song_dim=PythonOperator(
             task_id='LoadSongDim',
             python_callable=upload_to_database,
@@ -228,7 +226,7 @@ with DAG(
             },
             dag=dag
         )
-
+        #Load the artist dim
         artist_dim=PythonOperator(
             task_id='LoadArtistDim',
             python_callable=upload_to_database,
@@ -240,7 +238,7 @@ with DAG(
             },
             dag=dag
         )
-
+        #Load the calendar dim
         calendar = PostgresOperator(
             task_id='LoadCalendar',
             postgres_conn_id='postgres',
@@ -251,7 +249,7 @@ with DAG(
                  """.format(date=today_str,month=month,month_name=month_name,day_of_month=day_of_month,day_of_week=day_of_week,day_name=day_name,quarter=quarter),
             dag=dag
         )
-
+        #Load song fact
         song_fact=PythonOperator(
             task_id='LoadSongFact',
             python_callable=upload_to_database,
@@ -264,7 +262,7 @@ with DAG(
             },
             dag=dag
         )
-
+        #Load the Song Artist Bridge
         song_artist_bridge=PythonOperator(
             task_id='LoadSongArtistBridge',
             python_callable=upload_to_database,
@@ -277,7 +275,7 @@ with DAG(
             },
             dag=dag
         )
-
+        #Load the Artist Fact
         artist_fact=PythonOperator(
             task_id='LoadArtistFact',
             python_callable=upload_to_database,
