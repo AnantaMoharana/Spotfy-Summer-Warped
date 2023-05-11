@@ -4,8 +4,8 @@ import pandas as pd
 def authenitcate_api(ti):
 
     #The client ID and client secret from Spotify used for authenticating
-    CLIENT_ID='bd44d89ed5704273a7a27786a2c86f35'
-    CLIENT_SECRET='faa5559848ac466fb6173d2a6c8ff6be'
+    CLIENT_ID='REDACTED'
+    CLIENT_SECRET='REDACTED'
 
     #Spotify API Auth Url Endpoint
     AUTH_URL = 'https://accounts.spotify.com/api/token'
