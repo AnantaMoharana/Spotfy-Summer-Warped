@@ -1,0 +1,20 @@
+[2023-05-08T04:25:34.695+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.LoadArtistDim manual__2023-05-08T04:24:10.793519+00:00 [queued]>
+[2023-05-08T04:25:34.701+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.LoadArtistDim manual__2023-05-08T04:24:10.793519+00:00 [queued]>
+[2023-05-08T04:25:34.701+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 3
+[2023-05-08T04:25:34.710+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): LoadData.LoadArtistDim> on 2023-05-08 04:24:10.793519+00:00
+[2023-05-08T04:25:34.714+0000] {standard_task_runner.py:57} INFO - Started process 3969 to run task
+[2023-05-08T04:25:34.718+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'LoadData.LoadArtistDim', 'manual__2023-05-08T04:24:10.793519+00:00', '--job-id', '2153', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmph1706rv1']
+[2023-05-08T04:25:34.719+0000] {standard_task_runner.py:85} INFO - Job 2153: Subtask LoadData.LoadArtistDim
+[2023-05-08T04:25:34.760+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.LoadData.LoadArtistDim manual__2023-05-08T04:24:10.793519+00:00 [running]> on host a40687a10d43
+[2023-05-08T04:25:34.815+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='LoadData.LoadArtistDim' AIRFLOW_CTX_EXECUTION_DATE='2023-05-08T04:24:10.793519+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-08T04:24:10.793519+00:00'
+[2023-05-08T04:25:34.817+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: upload_to_database() missing 1 required positional argument: 'primary_key'
+[2023-05-08T04:25:34.825+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=Summer_Warped_ETL, task_id=LoadData.LoadArtistDim, execution_date=20230508T042410, start_date=20230508T042534, end_date=20230508T042534
+[2023-05-08T04:25:34.832+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 2153 for task LoadData.LoadArtistDim (upload_to_database() missing 1 required positional argument: 'primary_key'; 3969)
+[2023-05-08T04:25:34.849+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-08T04:25:34.872+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

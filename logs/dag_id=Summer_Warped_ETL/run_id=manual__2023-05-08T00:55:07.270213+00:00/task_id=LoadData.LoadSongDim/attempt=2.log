@@ -1,0 +1,90 @@
+[2023-05-08T00:56:06.953+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.LoadSongDim manual__2023-05-08T00:55:07.270213+00:00 [queued]>
+[2023-05-08T00:56:06.959+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.LoadSongDim manual__2023-05-08T00:55:07.270213+00:00 [queued]>
+[2023-05-08T00:56:06.959+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 3
+[2023-05-08T00:56:06.966+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): LoadData.LoadSongDim> on 2023-05-08 00:55:07.270213+00:00
+[2023-05-08T00:56:06.971+0000] {standard_task_runner.py:57} INFO - Started process 312 to run task
+[2023-05-08T00:56:06.975+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'LoadData.LoadSongDim', 'manual__2023-05-08T00:55:07.270213+00:00', '--job-id', '1672', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmpann4eoc8']
+[2023-05-08T00:56:06.975+0000] {standard_task_runner.py:85} INFO - Job 1672: Subtask LoadData.LoadSongDim
+[2023-05-08T00:56:07.009+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.LoadData.LoadSongDim manual__2023-05-08T00:55:07.270213+00:00 [running]> on host a40687a10d43
+[2023-05-08T00:56:07.059+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='LoadData.LoadSongDim' AIRFLOW_CTX_EXECUTION_DATE='2023-05-08T00:55:07.270213+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-08T00:55:07.270213+00:00'
+[2023-05-08T00:56:07.062+0000] {logging_mixin.py:149} INFO - 2023-05/song_dim.csv
+[2023-05-08T00:56:07.068+0000] {base.py:73} INFO - Using connection ID 'aws_connection' for task execution.
+[2023-05-08T00:56:07.069+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_connection', conn_type='aws') credentials retrieved from login and password.
+[2023-05-08T00:56:07.337+0000] {logging_mixin.py:149} INFO -        song_name                 song_id  explicit  ...    tempo  valence  mode
+0          WINGZ  7evQqGTWfKz8hIHzLVzneT     False  ...  170.025    0.120     0
+1  lights (4444)  3PDNGdhCtiQemL14eKhCup      True  ...   89.982    0.428     1
+2         softie  1bLEa8W1VVMFBIwp9hKYTL      True  ...  119.063    0.498     0
+3    do me wrong  7H74AdiJYM7hh4SYGrq9xe     False  ...  174.960    0.396     0
+4            HMU  2SWK4LJWLyev4yVYIVhjEV     False  ...   72.993    0.389     1
+
+[5 rows x 15 columns]
+[2023-05-08T00:56:07.338+0000] {logging_mixin.py:149} INFO - ['song_name', 'song_id', 'explicit', 'acousticness', 'danceability', 'duration_ms', 'energy', 'instrumentalness', 'key', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'mode']
+[2023-05-08T00:56:07.345+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-08T00:56:07.373+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1881, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 988, in do_executemany
+    **kwargs
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "song_dim_pkey"
+DETAIL:  Key (song_id)=(7evQqGTWfKz8hIHzLVzneT) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/load.py", line 35, in upload_to_database
+    df.to_sql(name=table, con=postgres_hook.get_sqlalchemy_engine(), schema='summer_warped', if_exists='append', index=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 2882, in to_sql
+    method=method,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 728, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1770, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1350, in insert_records
+    raise err
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1340, in insert_records
+    table.insert(chunksize=chunksize, method=method)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 967, in insert
+    exec_insert(conn, keys, chunk_iter)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 882, in _execute_insert
+    conn.execute(self.table.insert(), data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1380, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 335, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1944, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2125, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1881, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 988, in do_executemany
+    **kwargs
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "song_dim_pkey"
+DETAIL:  Key (song_id)=(7evQqGTWfKz8hIHzLVzneT) already exists.
+
+[SQL: INSERT INTO summer_warped.song_dim (song_name, song_id, explicit, acousticness, danceability, duration_ms, energy, instrumentalness, key, liveness, loudness, speechiness, tempo, valence, mode) VALUES (%(song_name)s, %(song_id)s, %(explicit)s, %(acousticness)s, %(danceability)s, %(duration_ms)s, %(energy)s, %(instrumentalness)s, %(key)s, %(liveness)s, %(loudness)s, %(speechiness)s, %(tempo)s, %(valence)s, %(mode)s)]
+[parameters: ({'song_name': 'WINGZ', 'song_id': '7evQqGTWfKz8hIHzLVzneT', 'explicit': False, 'acousticness': 0.206, 'danceability': 0.658, 'duration_ms': 182467, 'energy': 0.455, 'instrumentalness': 0.00112, 'key': 4, 'liveness': 0.43, 'loudness': -11.518, 'speechiness': 0.0564, 'tempo': 170.025, 'valence': 0.12, 'mode': 0}, {'song_name': 'lights (4444)', 'song_id': '3PDNGdhCtiQemL14eKhCup', 'explicit': True, 'acousticness': 0.0419, 'danceability': 0.718, 'duration_ms': 160423, 'energy': 0.6900000000000001, 'instrumentalness': 0.000419, 'key': 0, 'liveness': 0.105, 'loudness': -7.299, 'speechiness': 0.0795, 'tempo': 89.982, 'valence': 0.428, 'mode': 1}, {'song_name': 'softie', 'song_id': '1bLEa8W1VVMFBIwp9hKYTL', 'explicit': True, 'acousticness': 0.714, 'danceability': 0.781, 'duration_ms': 243025, 'energy': 0.431, 'instrumentalness': 0.0, 'key': 1, 'liveness': 0.258, 'loudness': -8.664, 'speechiness': 0.196, 'tempo': 119.063, 'valence': 0.498, 'mode': 0}, {'song_name': 'do me wrong', 'song_id': '7H74AdiJYM7hh4SYGrq9xe', 'explicit': False, 'acousticness': 0.113, 'danceability': 0.581, 'duration_ms': 167336, 'energy': 0.709, 'instrumentalness': 0.0, 'key': 11, 'liveness': 0.133, 'loudness': -5.25, 'speechiness': 0.0927, 'tempo': 174.96, 'valence': 0.396, 'mode': 0}, {'song_name': 'HMU', 'song_id': '2SWK4LJWLyev4yVYIVhjEV', 'explicit': False, 'acousticness': 0.33, 'danceability': 0.332, 'duration_ms': 185753, 'energy': 0.62, 'instrumentalness': 0.0, 'key': 2, 'liveness': 0.344, 'loudness': -8.784, 'speechiness': 0.406, 'tempo': 72.993, 'valence': 0.389, 'mode': 1}, {'song_name': 'FRIENDS', 'song_id': '6PGqbqEuh9naY4DaZCfuFp', 'explicit': True, 'acousticness': 0.217, 'danceability': 0.368, 'duration_ms': 180735, 'energy': 0.478, 'instrumentalness': 0.0, 'key': 11, 'liveness': 0.0731, 'loudness': -10.984, 'speechiness': 0.0935, 'tempo': 135.936, 'valence': 0.148, 'mode': 0}, {'song_name': 'well known', 'song_id': '7BQ1bO60AKrJdaHxfSeU0w', 'explicit': True, 'acousticness': 0.556, 'danceability': 0.588, 'duration_ms': 224168, 'energy': 0.291, 'instrumentalness': 1.04e-05, 'key': 7, 'liveness': 0.306, 'loudness': -14.769, 'speechiness': 0.145, 'tempo': 158.022, 'valence': 0.303, 'mode': 1}, {'song_name': 'Better Days', 'song_id': '3kx8NAbhl29I2bx1e5V1GS', 'explicit': False, 'acousticness': 0.00534, 'danceability': 0.5680000000000001, 'duration_ms': 171000, 'energy': 0.638, 'instrumentalness': 0.0002619999999999, 'key': 0, 'liveness': 0.11, 'loudness': -12.698, 'speechiness': 0.0413, 'tempo': 159.982, 'valence': 0.8, 'mode': 1}  ... displaying 10 of 100 total bound parameter sets ...  {'song_name': 'History', 'song_id': '4TwVtW8hS5LyLoDtJGpUOg', 'explicit': True, 'acousticness': 0.613, 'danceability': 0.554, 'duration_ms': 207308, 'energy': 0.589, 'instrumentalness': 0.000257, 'key': 3, 'liveness': 0.0982, 'loudness': -8.163, 'speechiness': 0.231, 'tempo': 74.982, 'valence': 0.414, 'mode': 0}, {'song_name': 'DITTO', 'song_id': '30AnNG3dFbHLQuSbIVWEbF', 'explicit': True, 'acousticness': 0.524, 'danceability': 0.645, 'duration_ms': 150323, 'energy': 0.579, 'instrumentalness': 1.78e-05, 'key': 4, 'liveness': 0.161, 'loudness': -9.137, 'speechiness': 0.1, 'tempo': 92.977, 'valence': 0.525, 'mode': 1})]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+[2023-05-08T00:56:07.384+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=Summer_Warped_ETL, task_id=LoadData.LoadSongDim, execution_date=20230508T005507, start_date=20230508T005606, end_date=20230508T005607
+[2023-05-08T00:56:07.390+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 1672 for task LoadData.LoadSongDim ((psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "song_dim_pkey"
+DETAIL:  Key (song_id)=(7evQqGTWfKz8hIHzLVzneT) already exists.
+
+[SQL: INSERT INTO summer_warped.song_dim (song_name, song_id, explicit, acousticness, danceability, duration_ms, energy, instrumentalness, key, liveness, loudness, speechiness, tempo, valence, mode) VALUES (%(song_name)s, %(song_id)s, %(explicit)s, %(acousticness)s, %(danceability)s, %(duration_ms)s, %(energy)s, %(instrumentalness)s, %(key)s, %(liveness)s, %(loudness)s, %(speechiness)s, %(tempo)s, %(valence)s, %(mode)s)]
+[parameters: ({'song_name': 'WINGZ', 'song_id': '7evQqGTWfKz8hIHzLVzneT', 'explicit': False, 'acousticness': 0.206, 'danceability': 0.658, 'duration_ms': 182467, 'energy': 0.455, 'instrumentalness': 0.00112, 'key': 4, 'liveness': 0.43, 'loudness': -11.518, 'speechiness': 0.0564, 'tempo': 170.025, 'valence': 0.12, 'mode': 0}, {'song_name': 'lights (4444)', 'song_id': '3PDNGdhCtiQemL14eKhCup', 'explicit': True, 'acousticness': 0.0419, 'danceability': 0.718, 'duration_ms': 160423, 'energy': 0.6900000000000001, 'instrumentalness': 0.000419, 'key': 0, 'liveness': 0.105, 'loudness': -7.299, 'speechiness': 0.0795, 'tempo': 89.982, 'valence': 0.428, 'mode': 1}, {'song_name': 'softie', 'song_id': '1bLEa8W1VVMFBIwp9hKYTL', 'explicit': True, 'acousticness': 0.714, 'danceability': 0.781, 'duration_ms': 243025, 'energy': 0.431, 'instrumentalness': 0.0, 'key': 1, 'liveness': 0.258, 'loudness': -8.664, 'speechiness': 0.196, 'tempo': 119.063, 'valence': 0.498, 'mode': 0}, {'song_name': 'do me wrong', 'song_id': '7H74AdiJYM7hh4SYGrq9xe', 'explicit': False, 'acousticness': 0.113, 'danceability': 0.581, 'duration_ms': 167336, 'energy': 0.709, 'instrumentalness': 0.0, 'key': 11, 'liveness': 0.133, 'loudness': -5.25, 'speechiness': 0.0927, 'tempo': 174.96, 'valence': 0.396, 'mode': 0}, {'song_name': 'HMU', 'song_id': '2SWK4LJWLyev4yVYIVhjEV', 'explicit': False, 'acousticness': 0.33, 'danceability': 0.332, 'duration_ms': 185753, 'energy': 0.62, 'instrumentalness': 0.0, 'key': 2, 'liveness': 0.344, 'loudness': -8.784, 'speechiness': 0.406, 'tempo': 72.993, 'valence': 0.389, 'mode': 1}, {'song_name': 'FRIENDS', 'song_id': '6PGqbqEuh9naY4DaZCfuFp', 'explicit': True, 'acousticness': 0.217, 'danceability': 0.368, 'duration_ms': 180735, 'energy': 0.478, 'instrumentalness': 0.0, 'key': 11, 'liveness': 0.0731, 'loudness': -10.984, 'speechiness': 0.0935, 'tempo': 135.936, 'valence': 0.148, 'mode': 0}, {'song_name': 'well known', 'song_id': '7BQ1bO60AKrJdaHxfSeU0w', 'explicit': True, 'acousticness': 0.556, 'danceability': 0.588, 'duration_ms': 224168, 'energy': 0.291, 'instrumentalness': 1.04e-05, 'key': 7, 'liveness': 0.306, 'loudness': -14.769, 'speechiness': 0.145, 'tempo': 158.022, 'valence': 0.303, 'mode': 1}, {'song_name': 'Better Days', 'song_id': '3kx8NAbhl29I2bx1e5V1GS', 'explicit': False, 'acousticness': 0.00534, 'danceability': 0.5680000000000001, 'duration_ms': 171000, 'energy': 0.638, 'instrumentalness': 0.0002619999999999, 'key': 0, 'liveness': 0.11, 'loudness': -12.698, 'speechiness': 0.0413, 'tempo': 159.982, 'valence': 0.8, 'mode': 1}  ... displaying 10 of 100 total bound parameter sets ...  {'song_name': 'History', 'song_id': '4TwVtW8hS5LyLoDtJGpUOg', 'explicit': True, 'acousticness': 0.613, 'danceability': 0.554, 'duration_ms': 207308, 'energy': 0.589, 'instrumentalness': 0.000257, 'key': 3, 'liveness': 0.0982, 'loudness': -8.163, 'speechiness': 0.231, 'tempo': 74.982, 'valence': 0.414, 'mode': 0}, {'song_name': 'DITTO', 'song_id': '30AnNG3dFbHLQuSbIVWEbF', 'explicit': True, 'acousticness': 0.524, 'danceability': 0.645, 'duration_ms': 150323, 'energy': 0.579, 'instrumentalness': 1.78e-05, 'key': 4, 'liveness': 0.161, 'loudness': -9.137, 'speechiness': 0.1, 'tempo': 92.977, 'valence': 0.525, 'mode': 1})]
+(Background on this error at: https://sqlalche.me/e/14/gkpj); 312)
+[2023-05-08T00:56:07.432+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-08T00:56:07.450+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

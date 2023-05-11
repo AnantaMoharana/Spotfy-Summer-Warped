@@ -1,0 +1,25 @@
+[2023-05-08T16:10:48.453+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.LoadCalendar manual__2023-05-08T16:09:58.195696+00:00 [queued]>
+[2023-05-08T16:10:48.458+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.LoadCalendar manual__2023-05-08T16:09:58.195696+00:00 [queued]>
+[2023-05-08T16:10:48.459+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 3
+[2023-05-08T16:10:48.467+0000] {taskinstance.py:1350} INFO - Executing <Task(PostgresOperator): LoadData.LoadCalendar> on 2023-05-08 16:09:58.195696+00:00
+[2023-05-08T16:10:48.472+0000] {standard_task_runner.py:57} INFO - Started process 863 to run task
+[2023-05-08T16:10:48.475+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'LoadData.LoadCalendar', 'manual__2023-05-08T16:09:58.195696+00:00', '--job-id', '2465', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmpjvd_z1ry']
+[2023-05-08T16:10:48.476+0000] {standard_task_runner.py:85} INFO - Job 2465: Subtask LoadData.LoadCalendar
+[2023-05-08T16:10:48.514+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.LoadData.LoadCalendar manual__2023-05-08T16:09:58.195696+00:00 [running]> on host 7b4753e133cb
+[2023-05-08T16:10:48.571+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='LoadData.LoadCalendar' AIRFLOW_CTX_EXECUTION_DATE='2023-05-08T16:09:58.195696+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-08T16:09:58.195696+00:00'
+[2023-05-08T16:10:48.573+0000] {sql.py:262} INFO - Executing: 
+                INSERT INTO calendar (date, month, monthname,dayofmonth,dayofweek,dayname,quarter)
+                VALUES ('2023-05-08', 5, 'May',8,0,'Monday',2)
+                ON CONFLICT (date) DO NOTHING;
+                 
+[2023-05-08T16:10:48.580+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-08T16:10:48.617+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-08T16:10:48.625+0000] {sql.py:375} INFO - Running statement: 
+                INSERT INTO calendar (date, month, monthname,dayofmonth,dayofweek,dayname,quarter)
+                VALUES ('2023-05-08', 5, 'May',8,0,'Monday',2)
+                ON CONFLICT (date) DO NOTHING;
+                 , parameters: None
+[2023-05-08T16:10:48.626+0000] {sql.py:384} INFO - Rows affected: 0
+[2023-05-08T16:10:48.635+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Summer_Warped_ETL, task_id=LoadData.LoadCalendar, execution_date=20230508T160958, start_date=20230508T161048, end_date=20230508T161048
+[2023-05-08T16:10:48.689+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-08T16:10:48.710+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

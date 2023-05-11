@@ -1,0 +1,15 @@
+[2023-05-09T17:07:56.629+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongArtistBridge.SongArtistBridgeToS3 manual__2023-05-09T17:07:30.625545+00:00 [queued]>
+[2023-05-09T17:07:56.651+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongArtistBridge.SongArtistBridgeToS3 manual__2023-05-09T17:07:30.625545+00:00 [queued]>
+[2023-05-09T17:07:56.652+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 3
+[2023-05-09T17:07:56.679+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): ValidateAndLoadSongArtistBridge.SongArtistBridgeToS3> on 2023-05-09 17:07:30.625545+00:00
+[2023-05-09T17:07:56.684+0000] {standard_task_runner.py:57} INFO - Started process 882 to run task
+[2023-05-09T17:07:56.697+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'ValidateAndLoadSongArtistBridge.SongArtistBridgeToS3', 'manual__2023-05-09T17:07:30.625545+00:00', '--job-id', '2861', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmppbfyfj02']
+[2023-05-09T17:07:56.698+0000] {standard_task_runner.py:85} INFO - Job 2861: Subtask ValidateAndLoadSongArtistBridge.SongArtistBridgeToS3
+[2023-05-09T17:07:56.848+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongArtistBridge.SongArtistBridgeToS3 manual__2023-05-09T17:07:30.625545+00:00 [running]> on host 544e3a3b1eb2
+[2023-05-09T17:07:57.088+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='ValidateAndLoadSongArtistBridge.SongArtistBridgeToS3' AIRFLOW_CTX_EXECUTION_DATE='2023-05-09T17:07:30.625545+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-09T17:07:30.625545+00:00'
+[2023-05-09T17:07:57.189+0000] {base.py:73} INFO - Using connection ID 'aws_connection' for task execution.
+[2023-05-09T17:07:57.191+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_connection', conn_type='aws') credentials retrieved from login and password.
+[2023-05-09T17:07:58.708+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-09T17:07:58.745+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Summer_Warped_ETL, task_id=ValidateAndLoadSongArtistBridge.SongArtistBridgeToS3, execution_date=20230509T170730, start_date=20230509T170756, end_date=20230509T170758
+[2023-05-09T17:07:58.804+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-09T17:07:58.879+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

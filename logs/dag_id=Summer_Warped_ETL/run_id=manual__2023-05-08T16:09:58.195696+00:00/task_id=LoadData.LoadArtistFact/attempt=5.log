@@ -1,0 +1,284 @@
+[2023-05-09T02:08:53.269+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.LoadArtistFact manual__2023-05-08T16:09:58.195696+00:00 [queued]>
+[2023-05-09T02:08:53.275+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.LoadArtistFact manual__2023-05-08T16:09:58.195696+00:00 [queued]>
+[2023-05-09T02:08:53.275+0000] {taskinstance.py:1331} INFO - Starting attempt 5 of 7
+[2023-05-09T02:08:53.283+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): LoadData.LoadArtistFact> on 2023-05-08 16:09:58.195696+00:00
+[2023-05-09T02:08:53.288+0000] {standard_task_runner.py:57} INFO - Started process 5952 to run task
+[2023-05-09T02:08:53.291+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'LoadData.LoadArtistFact', 'manual__2023-05-08T16:09:58.195696+00:00', '--job-id', '2671', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmp_gbaqldm']
+[2023-05-09T02:08:53.292+0000] {standard_task_runner.py:85} INFO - Job 2671: Subtask LoadData.LoadArtistFact
+[2023-05-09T02:08:53.325+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.LoadData.LoadArtistFact manual__2023-05-08T16:09:58.195696+00:00 [running]> on host 7b4753e133cb
+[2023-05-09T02:08:53.377+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='LoadData.LoadArtistFact' AIRFLOW_CTX_EXECUTION_DATE='2023-05-08T16:09:58.195696+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-08T16:09:58.195696+00:00'
+[2023-05-09T02:08:53.379+0000] {logging_mixin.py:149} INFO - 2023-05/artist_fact.csv
+[2023-05-09T02:08:53.386+0000] {base.py:73} INFO - Using connection ID 'aws_connection' for task execution.
+[2023-05-09T02:08:53.386+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_connection', conn_type='aws') credentials retrieved from login and password.
+[2023-05-09T02:08:53.647+0000] {logging_mixin.py:149} INFO -                 artist_id  followers  popularity        date
+0  62UdSpLGWjDU75OAFKLxWV       1661          25  2023-05-09
+1  0Ro9LZA0sRl1FG66KgsA1u       3859          31  2023-05-09
+2  6zqcGQ6MH6yetBUoquMnL7     199511          55  2023-05-09
+3  5cwtCGap3COvJNt1yineor       2660          30  2023-05-09
+4  5aTRa02UP1y6PW5klZiTt0      15166          40  2023-05-09
+[2023-05-09T02:08:53.648+0000] {logging_mixin.py:149} INFO - INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date
+[2023-05-09T02:08:53.655+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.664+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('62UdSpLGWjDU75OAFKLxWV', 1661, 25, '2023-05-09')
+[2023-05-09T02:08:53.666+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.672+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.681+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0Ro9LZA0sRl1FG66KgsA1u', 3859, 31, '2023-05-09')
+[2023-05-09T02:08:53.683+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.689+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.695+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('6zqcGQ6MH6yetBUoquMnL7', 199511, 55, '2023-05-09')
+[2023-05-09T02:08:53.697+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.702+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.709+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('5cwtCGap3COvJNt1yineor', 2660, 30, '2023-05-09')
+[2023-05-09T02:08:53.710+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.716+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.722+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('5aTRa02UP1y6PW5klZiTt0', 15166, 40, '2023-05-09')
+[2023-05-09T02:08:53.725+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.731+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.737+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('4kqFrZkeqDfOIEqTWqbOOV', 193782, 61, '2023-05-09')
+[2023-05-09T02:08:53.738+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.744+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.750+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('1N9JxmOPJqhMCw219uoEi8', 6155, 33, '2023-05-09')
+[2023-05-09T02:08:53.752+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.758+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.764+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0plNgbIlOc13T8ot3vyK79', 66754, 48, '2023-05-09')
+[2023-05-09T02:08:53.765+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.771+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.777+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0t7bbGUdyq3urfDddwXhdY', 2595, 35, '2023-05-09')
+[2023-05-09T02:08:53.778+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.784+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.791+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7Lcln0AXqNHMahrca8KVpy', 104613, 51, '2023-05-09')
+[2023-05-09T02:08:53.792+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.798+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.804+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('3XOHHfvBYKCMo1h0DFY27z', 5495, 36, '2023-05-09')
+[2023-05-09T02:08:53.805+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.812+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.818+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('1trffosn0Alk3IlloOD5O8', 16991, 44, '2023-05-09')
+[2023-05-09T02:08:53.820+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.826+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.832+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('04ei5kNgmDuNAydFhhIHnD', 361922, 58, '2023-05-09')
+[2023-05-09T02:08:53.833+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.840+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.846+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0WvTK38rXqPCD5pZMDuX20', 207430, 53, '2023-05-09')
+[2023-05-09T02:08:53.848+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.855+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.861+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('3hOdow4ZPmrby7Q1wfPLEy', 331656, 61, '2023-05-09')
+[2023-05-09T02:08:53.863+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.869+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.875+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7eRBEVzcZk4XyIdF0Btfg4', 2517, 31, '2023-05-09')
+[2023-05-09T02:08:53.877+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.884+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.890+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('3Ae7AQITxFS0r3yGQHYDJI', 2103, 25, '2023-05-09')
+[2023-05-09T02:08:53.891+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.897+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.903+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7C4ztJMkuGRy0qkU6dG5hU', 26337, 39, '2023-05-09')
+[2023-05-09T02:08:53.905+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.911+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.917+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0vUk0rbl0BkFjmeFvjOvoj', 719, 18, '2023-05-09')
+[2023-05-09T02:08:53.918+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.924+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.930+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('2cFrymmkijnjDg9SS92EPM', 4862148, 78, '2023-05-09')
+[2023-05-09T02:08:53.931+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.936+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.942+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('3Ps6le7tj5BdNtdnfNgTU4', 290876, 52, '2023-05-09')
+[2023-05-09T02:08:53.943+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.949+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.954+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('2QuPPChZpqAai29uqulNFe', 3657, 34, '2023-05-09')
+[2023-05-09T02:08:53.956+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.961+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.967+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('5ZPYeVqoWNuukwfarvkyJX', 22565, 37, '2023-05-09')
+[2023-05-09T02:08:53.969+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.975+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.982+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0BxHc5dN9BSfLZ8PCch9wT', 3911, 23, '2023-05-09')
+[2023-05-09T02:08:53.983+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:53.989+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:53.994+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('1iT8Vbd7KhZiBji3G72zDW', 3627, 24, '2023-05-09')
+[2023-05-09T02:08:53.996+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.002+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.007+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('4cJKDGSv4Dz9QycXYmo565', 231063, 63, '2023-05-09')
+[2023-05-09T02:08:54.009+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.015+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.020+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0UENogXhLeGTZjub4eejjX', 4951, 39, '2023-05-09')
+[2023-05-09T02:08:54.022+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.027+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.033+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7b2FbxYmnpGMPqDe04QmyP', 33207, 46, '2023-05-09')
+[2023-05-09T02:08:54.035+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.041+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.048+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('2anlj4dNUn9I1VxxmjRHRx', 12602, 44, '2023-05-09')
+[2023-05-09T02:08:54.050+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.056+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.061+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('4FI4qPOnjt3D8DnJQrNWps', 8, 0, '2023-05-09')
+[2023-05-09T02:08:54.063+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.068+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.074+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('5uLkZ7FWMTBUg1corQqdkR', 502219, 60, '2023-05-09')
+[2023-05-09T02:08:54.075+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.081+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.087+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0ILo2K3FmfIh4ICcbHE7RK', 30158, 52, '2023-05-09')
+[2023-05-09T02:08:54.089+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.094+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.102+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0r7PsZB4ePA6vHrW4agoGN', 30046, 28, '2023-05-09')
+[2023-05-09T02:08:54.104+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.110+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.117+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('1PpFka2STGQ57kJcgYBgEF', 18131, 41, '2023-05-09')
+[2023-05-09T02:08:54.118+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.124+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.130+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('6YxrfNCKBcQlbITpmDLErL', 104139, 54, '2023-05-09')
+[2023-05-09T02:08:54.131+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.137+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.142+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('2R2Yg2qPloNOTOfqxfXX7l', 20611, 44, '2023-05-09')
+[2023-05-09T02:08:54.144+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.150+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.156+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('4yOY5zmuuTlS1DbG3yZGki', 18, 38, '2023-05-09')
+[2023-05-09T02:08:54.158+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.164+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.171+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7iVscW49OWowl9SoLmWzfy', 11643, 44, '2023-05-09')
+[2023-05-09T02:08:54.173+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.178+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.184+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('6c0lj01vVpHsCH7Z5CfJ9K', 80735, 48, '2023-05-09')
+[2023-05-09T02:08:54.185+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.191+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:54.196+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('4tjqHer0BFQbJ1FVyWhffM', 33169, 49, '2023-05-09')
+[2023-05-09T02:08:54.198+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:54.206+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.238+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('63CZNEytugjFnZBdjBmWc8', 27318, 49, '2023-05-09')
+[2023-05-09T02:08:59.245+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.265+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.278+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0be7y7HUvSBf8uG1X7pK8f', 16922, 43, '2023-05-09')
+[2023-05-09T02:08:59.280+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.288+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.297+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('2trvlbfMS5zVozEmrFNDTJ', 17902, 39, '2023-05-09')
+[2023-05-09T02:08:59.298+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.306+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.315+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('63dmB3SM4vOZ8rK1EX5IkU', 17762, 41, '2023-05-09')
+[2023-05-09T02:08:59.316+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.322+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.329+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('6fWVd57NKTalqvmjRd2t8Z', 2025844, 72, '2023-05-09')
+[2023-05-09T02:08:59.330+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.336+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.343+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('3ddT1Q3KQAm1G7UcIfz5KJ', 198435, 53, '2023-05-09')
+[2023-05-09T02:08:59.345+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.351+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.358+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('47SwNXPh17mIDcZwsCr6hX', 112, 0, '2023-05-09')
+[2023-05-09T02:08:59.360+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.365+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.372+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7MS7B4QRp1n6c5H8N7s3wB', 7718, 46, '2023-05-09')
+[2023-05-09T02:08:59.373+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.379+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.388+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('6wUAn24MOirNVNqQM47fda', 35034, 54, '2023-05-09')
+[2023-05-09T02:08:59.390+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.396+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.403+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('4KoNbDwbCK9D04dSmYG93E', 26953, 39, '2023-05-09')
+[2023-05-09T02:08:59.405+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.411+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.418+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('2848adRcxvgWNRcz1g1tQD', 149597, 54, '2023-05-09')
+[2023-05-09T02:08:59.420+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.426+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.434+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0QkgnHpxSCOYdTnhUR9S5k', 68846, 50, '2023-05-09')
+[2023-05-09T02:08:59.438+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.445+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.454+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('3AUIYVmhwrsw8UOPHEv91Z', 65305, 51, '2023-05-09')
+[2023-05-09T02:08:59.455+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.460+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.467+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('71EAlWYAa5jb4phZIOlp7u', 5855, 28, '2023-05-09')
+[2023-05-09T02:08:59.469+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.475+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.483+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('2GUw9Wzha61PkZoRVv1PDD', 59472, 52, '2023-05-09')
+[2023-05-09T02:08:59.485+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.492+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.498+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('3wDeS1sr05fxaOeiJJrOnL', 31297, 51, '2023-05-09')
+[2023-05-09T02:08:59.499+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.505+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.512+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('1OP39gZ2SXVnwg4NrARmsu', 4527, 31, '2023-05-09')
+[2023-05-09T02:08:59.513+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.519+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.527+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('1vwwjIPFeYoRfAUCqqO6cZ', 43853, 52, '2023-05-09')
+[2023-05-09T02:08:59.529+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.535+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.542+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('2Ci3Sflo2BfC77wTwn2hbH', 38947, 40, '2023-05-09')
+[2023-05-09T02:08:59.543+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.549+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.555+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('670UISOh9XV1zlq5z5IfoY', 20683, 49, '2023-05-09')
+[2023-05-09T02:08:59.557+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.562+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.569+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('3QZxOYl5zlZtfigtXOZsfT', 26534, 36, '2023-05-09')
+[2023-05-09T02:08:59.570+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.576+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.583+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('2AfU5LYBVCiCtuCCfM7uVX', 597395, 62, '2023-05-09')
+[2023-05-09T02:08:59.585+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.591+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.600+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7MigDh04CCntQbsBvugEmb', 113307, 61, '2023-05-09')
+[2023-05-09T02:08:59.602+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.608+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.615+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('1tQu5TjcAK68fx8qrc8ZgF', 74377, 51, '2023-05-09')
+[2023-05-09T02:08:59.617+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.623+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.630+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0Kx7qYhFiv0YD5lxEG1nsz', 5144, 25, '2023-05-09')
+[2023-05-09T02:08:59.632+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.637+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.644+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('5ibWbhA0IkPT3xCN0YicRL', 6543, 52, '2023-05-09')
+[2023-05-09T02:08:59.645+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.651+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.658+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7naAJDAh7AZnf18YYfQruM', 295535, 60, '2023-05-09')
+[2023-05-09T02:08:59.659+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.665+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.673+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('6fHEaFnFgMxMAtDt7mFoQ3', 13951, 41, '2023-05-09')
+[2023-05-09T02:08:59.675+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.682+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.688+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('0S7eN9KAsbAaIZtFyCn1q1', 41738, 60, '2023-05-09')
+[2023-05-09T02:08:59.689+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.695+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.702+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('4X8TR9pBFyewFlIDYt1o2s', 19549, 51, '2023-05-09')
+[2023-05-09T02:08:59.704+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.713+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.720+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('5UrcghjIlj83Jf7QjZfBhZ', 88, 22, '2023-05-09')
+[2023-05-09T02:08:59.722+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.728+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.735+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('3pob90yrusjcbgSYFKaeAk', 6147, 32, '2023-05-09')
+[2023-05-09T02:08:59.737+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.742+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.749+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7BoBxrm9jJ7us6U92oqr4N', 794, 24, '2023-05-09')
+[2023-05-09T02:08:59.750+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.756+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.762+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('1fsCfvdiomqjKJFR6xI8e4', 109843, 56, '2023-05-09')
+[2023-05-09T02:08:59.763+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.769+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.778+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7wSr4otUV4ytUvHE4w3rBe', 41545, 31, '2023-05-09')
+[2023-05-09T02:08:59.780+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.786+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.792+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('61qMnYXa1GxSBoV3IiYKjZ', 520551, 55, '2023-05-09')
+[2023-05-09T02:08:59.793+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.799+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.806+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7HfUJxeVTgrvhk0eWHFzV7', 56206, 47, '2023-05-09')
+[2023-05-09T02:08:59.808+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.814+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.822+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('4HAfqyKr4Sqtab6ttHWXgE', 100007, 57, '2023-05-09')
+[2023-05-09T02:08:59.823+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.829+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.836+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('27w1NoOLMX7tJMYqcetPyG', 606609, 61, '2023-05-09')
+[2023-05-09T02:08:59.837+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.843+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.851+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('5G9kmDLg3OeUyj8KVBLzbu', 554757, 67, '2023-05-09')
+[2023-05-09T02:08:59.852+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.860+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.867+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7vSY9HEreOqb1Llar3UC38', 199893, 55, '2023-05-09')
+[2023-05-09T02:08:59.868+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.874+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.882+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('7FngGIEGgN3Iwauw1MvO4P', 404272, 60, '2023-05-09')
+[2023-05-09T02:08:59.883+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.890+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.897+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('5VfSeZYcDwD8WQVwbaoL6z', 5321, 30, '2023-05-09')
+[2023-05-09T02:08:59.898+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.905+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.913+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('5JZPSVFMUk4HGDdx68lN77', 7206, 32, '2023-05-09')
+[2023-05-09T02:08:59.914+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.921+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.928+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('6rEjEIfp3NSRteU3kJGSET', 10934, 42, '2023-05-09')
+[2023-05-09T02:08:59.929+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.936+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.943+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('2IDLDx25HU1nQMKde4n61a', 2155618, 69, '2023-05-09')
+[2023-05-09T02:08:59.945+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.951+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:59.958+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_fact (artist_id,followers,popularity,date) VALUES (%s,%s,%s,%s) ON CONFLICT (artist_id,date) DO UPDATE SET artist_id=EXCLUDED.artist_id,followers=EXCLUDED.followers,popularity=EXCLUDED.popularity,date=EXCLUDED.date, parameters: ('1AhjOkOLkbHUfcHDSErXQs', 893033, 67, '2023-05-09')
+[2023-05-09T02:08:59.960+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:59.961+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-09T02:08:59.969+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Summer_Warped_ETL, task_id=LoadData.LoadArtistFact, execution_date=20230508T160958, start_date=20230509T020853, end_date=20230509T020859
+[2023-05-09T02:09:00.010+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-09T02:09:00.024+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,29 @@
+[2023-05-07T22:54:48.790+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.TransformData manual__2023-05-07T22:50:54.990520+00:00 [queued]>
+[2023-05-07T22:54:48.795+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.TransformData manual__2023-05-07T22:50:54.990520+00:00 [queued]>
+[2023-05-07T22:54:48.796+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 4
+[2023-05-07T22:54:48.804+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): TransformData> on 2023-05-07 22:50:54.990520+00:00
+[2023-05-07T22:54:48.809+0000] {standard_task_runner.py:57} INFO - Started process 108 to run task
+[2023-05-07T22:54:48.813+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'TransformData', 'manual__2023-05-07T22:50:54.990520+00:00', '--job-id', '1480', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmp70oq3agy']
+[2023-05-07T22:54:48.814+0000] {standard_task_runner.py:85} INFO - Job 1480: Subtask TransformData
+[2023-05-07T22:54:48.851+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.TransformData manual__2023-05-07T22:50:54.990520+00:00 [running]> on host fa349db4fc2f
+[2023-05-07T22:54:48.907+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='TransformData' AIRFLOW_CTX_EXECUTION_DATE='2023-05-07T22:50:54.990520+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-07T22:50:54.990520+00:00'
+[2023-05-07T22:54:48.944+0000] {logging_mixin.py:149} INFO - ['song_id', 'acousticness', 'danceability', 'duration_ms', 'energy', 'instrumentalness', 'key', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'mode']
+[2023-05-07T22:54:48.944+0000] {logging_mixin.py:149} INFO - ['artist_id', 'popularity', 'genre', 'followers']
+[2023-05-07T22:54:48.945+0000] {logging_mixin.py:149} INFO - ['song_name', 'song_id', 'explicit', 'popularity', 'artist_name', 'artist_id']
+[2023-05-07T22:54:48.948+0000] {warnings.py:110} WARNING - /opt/***/dags/src/transform.py:34: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  song_fact['date']=today
+
+[2023-05-07T22:54:48.949+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pandas/util/_decorators.py:311: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  return func(*args, **kwargs)
+
+[2023-05-07T22:54:49.002+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-07T22:54:49.010+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Summer_Warped_ETL, task_id=TransformData, execution_date=20230507T225054, start_date=20230507T225448, end_date=20230507T225449
+[2023-05-07T22:54:49.066+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-07T22:54:49.089+0000] {taskinstance.py:2674} INFO - 5 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,63 @@
+[2023-05-06T04:15:26.388+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.TransformData manual__2023-05-06T03:40:12.069128+00:00 [queued]>
+[2023-05-06T04:15:26.394+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.TransformData manual__2023-05-06T03:40:12.069128+00:00 [queued]>
+[2023-05-06T04:15:26.394+0000] {taskinstance.py:1331} INFO - Starting attempt 6 of 8
+[2023-05-06T04:15:26.403+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): TransformData> on 2023-05-06 03:40:12.069128+00:00
+[2023-05-06T04:15:26.407+0000] {standard_task_runner.py:57} INFO - Started process 768 to run task
+[2023-05-06T04:15:26.412+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'TransformData', 'manual__2023-05-06T03:40:12.069128+00:00', '--job-id', '149', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmpj3yurvs9']
+[2023-05-06T04:15:26.413+0000] {standard_task_runner.py:85} INFO - Job 149: Subtask TransformData
+[2023-05-06T04:15:26.448+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.TransformData manual__2023-05-06T03:40:12.069128+00:00 [running]> on host 49f85d1317d0
+[2023-05-06T04:15:26.501+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='TransformData' AIRFLOW_CTX_EXECUTION_DATE='2023-05-06T03:40:12.069128+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-06T03:40:12.069128+00:00'
+[2023-05-06T04:15:26.536+0000] {warnings.py:110} WARNING - /opt/***/dags/src/load.py:28: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  song_fact['date']=today
+
+[2023-05-06T04:15:26.538+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pandas/util/_decorators.py:311: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  return func(*args, **kwargs)
+
+[2023-05-06T04:15:26.545+0000] {logging_mixin.py:149} INFO - One
+[2023-05-06T04:15:26.549+0000] {logging_mixin.py:149} INFO -                   song_id  popularity        date
+0  5RcxRGvmYai7kpFSfxe5GY          89  2023-05-06
+2  65FftemJ1DbbZ45DUfHJXE          93  2023-05-06
+3  0PB0O24JqAuNdOAFVJljMS          92  2023-05-06
+5  5mHdCZtVyb4DcJw8799hZp          90  2023-05-06
+7  4VMRsbfZzd3SfQtaJ1Wpwi          89  2023-05-06
+[2023-05-06T04:15:26.549+0000] {logging_mixin.py:149} INFO - Two
+[2023-05-06T04:15:26.556+0000] {logging_mixin.py:149} INFO -                       song_name                 song_id  ...  valence  mode
+0                        Chanel  5RcxRGvmYai7kpFSfxe5GY  ...   0.5280     1
+2                           OMG  65FftemJ1DbbZ45DUfHJXE  ...   0.7390     0
+3                   Coco Chanel  0PB0O24JqAuNdOAFVJljMS  ...   0.1370     1
+5                     Escapism.  5mHdCZtVyb4DcJw8799hZp  ...   0.2500     1
+7  Double Fantasy (with Future)  4VMRsbfZzd3SfQtaJ1Wpwi  ...   0.0951     0
+
+[5 rows x 15 columns]
+[2023-05-06T04:15:26.557+0000] {logging_mixin.py:149} INFO - Three
+[2023-05-06T04:15:26.559+0000] {logging_mixin.py:149} INFO -                   song_id               artist_id
+0  5RcxRGvmYai7kpFSfxe5GY  12GqGscKJx3aE4t07u7eVZ
+1  5RcxRGvmYai7kpFSfxe5GY  4obzFoKoKRHIphyHzJ35G3
+2  65FftemJ1DbbZ45DUfHJXE  6HvZYsbFfjnjFrWF950C9d
+3  0PB0O24JqAuNdOAFVJljMS  4q3ewBCX7sLwd24euuV69X
+4  0PB0O24JqAuNdOAFVJljMS  5XJDexmWFLWOkjOEjOVX3e
+[2023-05-06T04:15:26.560+0000] {logging_mixin.py:149} INFO - Four
+[2023-05-06T04:15:26.562+0000] {logging_mixin.py:149} INFO -                  artist_id  followers  popularity         genre        date
+0   12GqGscKJx3aE4t07u7eVZ    2765394          94       corrido  2023-05-06
+7   4obzFoKoKRHIphyHzJ35G3   13338843          81     latin pop  2023-05-06
+8   6HvZYsbFfjnjFrWF950C9d    3226374          82         k-pop  2023-05-06
+9   4q3ewBCX7sLwd24euuV69X   68508051          97     reggaeton  2023-05-06
+11  5XJDexmWFLWOkjOEjOVX3e    3521403          87  trap boricua  2023-05-06
+[2023-05-06T04:15:26.563+0000] {logging_mixin.py:149} INFO - Five
+[2023-05-06T04:15:26.565+0000] {logging_mixin.py:149} INFO -       artist_name               artist_id
+0      Peso Pluma  12GqGscKJx3aE4t07u7eVZ
+1         Becky G  4obzFoKoKRHIphyHzJ35G3
+2        NewJeans  6HvZYsbFfjnjFrWF950C9d
+3       Bad Bunny  4q3ewBCX7sLwd24euuV69X
+4  Eladio Carrion  5XJDexmWFLWOkjOEjOVX3e
+[2023-05-06T04:15:26.601+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-06T04:15:26.608+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Summer_Warped_ETL, task_id=TransformData, execution_date=20230506T034012, start_date=20230506T041526, end_date=20230506T041526
+[2023-05-06T04:15:26.663+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-06T04:15:26.678+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

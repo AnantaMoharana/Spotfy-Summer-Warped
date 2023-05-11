@@ -1,0 +1,114 @@
+[2023-05-06T19:52:37.234+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.GetSongsFromPlaylist manual__2023-05-06T19:52:35.053683+00:00 [queued]>
+[2023-05-06T19:52:37.239+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.GetSongsFromPlaylist manual__2023-05-06T19:52:35.053683+00:00 [queued]>
+[2023-05-06T19:52:37.239+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 3
+[2023-05-06T19:52:37.247+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): GetSongsFromPlaylist> on 2023-05-06 19:52:35.053683+00:00
+[2023-05-06T19:52:37.252+0000] {standard_task_runner.py:57} INFO - Started process 4199 to run task
+[2023-05-06T19:52:37.255+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'GetSongsFromPlaylist', 'manual__2023-05-06T19:52:35.053683+00:00', '--job-id', '257', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmpcryc0v15']
+[2023-05-06T19:52:37.256+0000] {standard_task_runner.py:85} INFO - Job 257: Subtask GetSongsFromPlaylist
+[2023-05-06T19:52:37.289+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.GetSongsFromPlaylist manual__2023-05-06T19:52:35.053683+00:00 [running]> on host 49f85d1317d0
+[2023-05-06T19:52:37.339+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='GetSongsFromPlaylist' AIRFLOW_CTX_EXECUTION_DATE='2023-05-06T19:52:35.053683+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-06T19:52:35.053683+00:00'
+[2023-05-06T19:52:37.769+0000] {logging_mixin.py:149} INFO - 100
+[2023-05-06T19:52:37.770+0000] {logging_mixin.py:149} INFO - 0
+[2023-05-06T19:52:37.773+0000] {logging_mixin.py:149} INFO - 1
+[2023-05-06T19:52:37.775+0000] {logging_mixin.py:149} INFO - 2
+[2023-05-06T19:52:37.776+0000] {logging_mixin.py:149} INFO - 3
+[2023-05-06T19:52:37.777+0000] {logging_mixin.py:149} INFO - 4
+[2023-05-06T19:52:37.779+0000] {logging_mixin.py:149} INFO - 5
+[2023-05-06T19:52:37.780+0000] {logging_mixin.py:149} INFO - 6
+[2023-05-06T19:52:37.782+0000] {logging_mixin.py:149} INFO - 7
+[2023-05-06T19:52:37.784+0000] {logging_mixin.py:149} INFO - 8
+[2023-05-06T19:52:37.785+0000] {logging_mixin.py:149} INFO - 9
+[2023-05-06T19:52:37.786+0000] {logging_mixin.py:149} INFO - 10
+[2023-05-06T19:52:37.788+0000] {logging_mixin.py:149} INFO - 11
+[2023-05-06T19:52:37.789+0000] {logging_mixin.py:149} INFO - 12
+[2023-05-06T19:52:37.790+0000] {logging_mixin.py:149} INFO - 13
+[2023-05-06T19:52:37.791+0000] {logging_mixin.py:149} INFO - 14
+[2023-05-06T19:52:37.793+0000] {logging_mixin.py:149} INFO - 15
+[2023-05-06T19:52:37.794+0000] {logging_mixin.py:149} INFO - 16
+[2023-05-06T19:52:37.795+0000] {logging_mixin.py:149} INFO - 17
+[2023-05-06T19:52:37.797+0000] {logging_mixin.py:149} INFO - 18
+[2023-05-06T19:52:37.798+0000] {logging_mixin.py:149} INFO - 19
+[2023-05-06T19:52:37.799+0000] {logging_mixin.py:149} INFO - 20
+[2023-05-06T19:52:37.800+0000] {logging_mixin.py:149} INFO - 21
+[2023-05-06T19:52:37.801+0000] {logging_mixin.py:149} INFO - 22
+[2023-05-06T19:52:37.802+0000] {logging_mixin.py:149} INFO - 23
+[2023-05-06T19:52:37.803+0000] {logging_mixin.py:149} INFO - 24
+[2023-05-06T19:52:37.804+0000] {logging_mixin.py:149} INFO - 25
+[2023-05-06T19:52:37.805+0000] {logging_mixin.py:149} INFO - 26
+[2023-05-06T19:52:37.806+0000] {logging_mixin.py:149} INFO - 27
+[2023-05-06T19:52:37.809+0000] {logging_mixin.py:149} INFO - 28
+[2023-05-06T19:52:37.810+0000] {logging_mixin.py:149} INFO - 29
+[2023-05-06T19:52:37.811+0000] {logging_mixin.py:149} INFO - 30
+[2023-05-06T19:52:37.812+0000] {logging_mixin.py:149} INFO - 31
+[2023-05-06T19:52:37.813+0000] {logging_mixin.py:149} INFO - 32
+[2023-05-06T19:52:37.814+0000] {logging_mixin.py:149} INFO - 33
+[2023-05-06T19:52:37.815+0000] {logging_mixin.py:149} INFO - 34
+[2023-05-06T19:52:37.816+0000] {logging_mixin.py:149} INFO - 35
+[2023-05-06T19:52:37.818+0000] {logging_mixin.py:149} INFO - 36
+[2023-05-06T19:52:37.820+0000] {logging_mixin.py:149} INFO - 37
+[2023-05-06T19:52:37.821+0000] {logging_mixin.py:149} INFO - 38
+[2023-05-06T19:52:37.822+0000] {logging_mixin.py:149} INFO - 39
+[2023-05-06T19:52:37.823+0000] {logging_mixin.py:149} INFO - 40
+[2023-05-06T19:52:37.825+0000] {logging_mixin.py:149} INFO - 41
+[2023-05-06T19:52:37.826+0000] {logging_mixin.py:149} INFO - 42
+[2023-05-06T19:52:37.827+0000] {logging_mixin.py:149} INFO - 43
+[2023-05-06T19:52:37.828+0000] {logging_mixin.py:149} INFO - 44
+[2023-05-06T19:52:37.829+0000] {logging_mixin.py:149} INFO - 45
+[2023-05-06T19:52:37.830+0000] {logging_mixin.py:149} INFO - 46
+[2023-05-06T19:52:37.832+0000] {logging_mixin.py:149} INFO - 47
+[2023-05-06T19:52:37.834+0000] {logging_mixin.py:149} INFO - 48
+[2023-05-06T19:52:37.835+0000] {logging_mixin.py:149} INFO - 49
+[2023-05-06T19:52:37.836+0000] {logging_mixin.py:149} INFO - 50
+[2023-05-06T19:52:37.838+0000] {logging_mixin.py:149} INFO - 51
+[2023-05-06T19:52:37.839+0000] {logging_mixin.py:149} INFO - 52
+[2023-05-06T19:52:37.840+0000] {logging_mixin.py:149} INFO - 53
+[2023-05-06T19:52:37.841+0000] {logging_mixin.py:149} INFO - 54
+[2023-05-06T19:52:37.842+0000] {logging_mixin.py:149} INFO - 55
+[2023-05-06T19:52:37.843+0000] {logging_mixin.py:149} INFO - 56
+[2023-05-06T19:52:37.844+0000] {logging_mixin.py:149} INFO - 57
+[2023-05-06T19:52:37.845+0000] {logging_mixin.py:149} INFO - 58
+[2023-05-06T19:52:37.847+0000] {logging_mixin.py:149} INFO - 59
+[2023-05-06T19:52:37.849+0000] {logging_mixin.py:149} INFO - 60
+[2023-05-06T19:52:37.850+0000] {logging_mixin.py:149} INFO - 61
+[2023-05-06T19:52:37.852+0000] {logging_mixin.py:149} INFO - 62
+[2023-05-06T19:52:37.853+0000] {logging_mixin.py:149} INFO - 63
+[2023-05-06T19:52:37.854+0000] {logging_mixin.py:149} INFO - 64
+[2023-05-06T19:52:37.855+0000] {logging_mixin.py:149} INFO - 65
+[2023-05-06T19:52:37.856+0000] {logging_mixin.py:149} INFO - 66
+[2023-05-06T19:52:37.858+0000] {logging_mixin.py:149} INFO - 67
+[2023-05-06T19:52:37.859+0000] {logging_mixin.py:149} INFO - 68
+[2023-05-06T19:52:37.860+0000] {logging_mixin.py:149} INFO - 69
+[2023-05-06T19:52:37.861+0000] {logging_mixin.py:149} INFO - 70
+[2023-05-06T19:52:37.863+0000] {logging_mixin.py:149} INFO - 71
+[2023-05-06T19:52:37.864+0000] {logging_mixin.py:149} INFO - 72
+[2023-05-06T19:52:37.866+0000] {logging_mixin.py:149} INFO - 73
+[2023-05-06T19:52:37.867+0000] {logging_mixin.py:149} INFO - 74
+[2023-05-06T19:52:37.868+0000] {logging_mixin.py:149} INFO - 75
+[2023-05-06T19:52:37.869+0000] {logging_mixin.py:149} INFO - 76
+[2023-05-06T19:52:37.870+0000] {logging_mixin.py:149} INFO - 77
+[2023-05-06T19:52:37.873+0000] {logging_mixin.py:149} INFO - 78
+[2023-05-06T19:52:37.874+0000] {logging_mixin.py:149} INFO - 79
+[2023-05-06T19:52:37.875+0000] {logging_mixin.py:149} INFO - 80
+[2023-05-06T19:52:37.877+0000] {logging_mixin.py:149} INFO - 81
+[2023-05-06T19:52:37.880+0000] {logging_mixin.py:149} INFO - 82
+[2023-05-06T19:52:37.881+0000] {logging_mixin.py:149} INFO - 83
+[2023-05-06T19:52:37.884+0000] {logging_mixin.py:149} INFO - 84
+[2023-05-06T19:52:37.887+0000] {logging_mixin.py:149} INFO - 85
+[2023-05-06T19:52:37.889+0000] {logging_mixin.py:149} INFO - 86
+[2023-05-06T19:52:37.891+0000] {logging_mixin.py:149} INFO - 87
+[2023-05-06T19:52:37.893+0000] {logging_mixin.py:149} INFO - 88
+[2023-05-06T19:52:37.894+0000] {logging_mixin.py:149} INFO - 89
+[2023-05-06T19:52:37.898+0000] {logging_mixin.py:149} INFO - 90
+[2023-05-06T19:52:37.900+0000] {logging_mixin.py:149} INFO - 91
+[2023-05-06T19:52:37.901+0000] {logging_mixin.py:149} INFO - 92
+[2023-05-06T19:52:37.904+0000] {logging_mixin.py:149} INFO - 93
+[2023-05-06T19:52:37.907+0000] {logging_mixin.py:149} INFO - 94
+[2023-05-06T19:52:37.911+0000] {logging_mixin.py:149} INFO - 95
+[2023-05-06T19:52:37.912+0000] {logging_mixin.py:149} INFO - 96
+[2023-05-06T19:52:37.914+0000] {logging_mixin.py:149} INFO - 97
+[2023-05-06T19:52:37.915+0000] {logging_mixin.py:149} INFO - 98
+[2023-05-06T19:52:37.917+0000] {logging_mixin.py:149} INFO - 99
+[2023-05-06T19:52:37.935+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-06T19:52:37.947+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Summer_Warped_ETL, task_id=GetSongsFromPlaylist, execution_date=20230506T195235, start_date=20230506T195237, end_date=20230506T195237
+[2023-05-06T19:52:37.998+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-06T19:52:38.030+0000] {taskinstance.py:2674} INFO - 2 downstream tasks scheduled from follow-on schedule check

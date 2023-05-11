@@ -1,0 +1,15 @@
+[2023-05-07T17:48:55.677+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.ValidateAndLoadArtistDim.ArtistDimToS3 manual__2023-05-07T17:48:23.448865+00:00 [queued]>
+[2023-05-07T17:48:55.683+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.ValidateAndLoadArtistDim.ArtistDimToS3 manual__2023-05-07T17:48:23.448865+00:00 [queued]>
+[2023-05-07T17:48:55.684+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 3
+[2023-05-07T17:48:55.697+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): ValidateAndLoadArtistDim.ArtistDimToS3> on 2023-05-07 17:48:23.448865+00:00
+[2023-05-07T17:48:55.703+0000] {standard_task_runner.py:57} INFO - Started process 239 to run task
+[2023-05-07T17:48:55.708+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'ValidateAndLoadArtistDim.ArtistDimToS3', 'manual__2023-05-07T17:48:23.448865+00:00', '--job-id', '901', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmpx11p_h12']
+[2023-05-07T17:48:55.709+0000] {standard_task_runner.py:85} INFO - Job 901: Subtask ValidateAndLoadArtistDim.ArtistDimToS3
+[2023-05-07T17:48:55.767+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.ValidateAndLoadArtistDim.ArtistDimToS3 manual__2023-05-07T17:48:23.448865+00:00 [running]> on host f67ce86ae01d
+[2023-05-07T17:48:55.869+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='ValidateAndLoadArtistDim.ArtistDimToS3' AIRFLOW_CTX_EXECUTION_DATE='2023-05-07T17:48:23.448865+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-07T17:48:23.448865+00:00'
+[2023-05-07T17:48:55.893+0000] {base.py:73} INFO - Using connection ID 'aws_connection' for task execution.
+[2023-05-07T17:48:55.894+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_connection', conn_type='aws') credentials retrieved from login and password.
+[2023-05-07T17:48:56.383+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-07T17:48:56.394+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Summer_Warped_ETL, task_id=ValidateAndLoadArtistDim.ArtistDimToS3, execution_date=20230507T174823, start_date=20230507T174855, end_date=20230507T174856
+[2023-05-07T17:48:56.442+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-07T17:48:56.479+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

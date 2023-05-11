@@ -1,0 +1,94 @@
+[2023-05-07T22:31:00.446+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.GetArtistInfo manual__2023-05-07T21:54:25.314545+00:00 [queued]>
+[2023-05-07T22:31:00.452+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.GetArtistInfo manual__2023-05-07T21:54:25.314545+00:00 [queued]>
+[2023-05-07T22:31:00.453+0000] {taskinstance.py:1331} INFO - Starting attempt 8 of 10
+[2023-05-07T22:31:00.460+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): GetArtistInfo> on 2023-05-07 21:54:25.314545+00:00
+[2023-05-07T22:31:00.466+0000] {standard_task_runner.py:57} INFO - Started process 1751 to run task
+[2023-05-07T22:31:00.469+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'GetArtistInfo', 'manual__2023-05-07T21:54:25.314545+00:00', '--job-id', '1171', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmpdhajagbv']
+[2023-05-07T22:31:00.470+0000] {standard_task_runner.py:85} INFO - Job 1171: Subtask GetArtistInfo
+[2023-05-07T22:31:00.526+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.GetArtistInfo manual__2023-05-07T21:54:25.314545+00:00 [running]> on host 31774baccecb
+[2023-05-07T22:31:00.629+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='GetArtistInfo' AIRFLOW_CTX_EXECUTION_DATE='2023-05-07T21:54:25.314545+00:00' AIRFLOW_CTX_TRY_NUMBER='8' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-07T21:54:25.314545+00:00'
+[2023-05-07T22:31:00.826+0000] {logging_mixin.py:149} INFO - emo rap
+[2023-05-07T22:31:01.332+0000] {logging_mixin.py:149} INFO - hyperpop
+[2023-05-07T22:31:01.531+0000] {logging_mixin.py:149} INFO - underground hip hop
+[2023-05-07T22:31:01.662+0000] {logging_mixin.py:149} INFO - sad rap
+[2023-05-07T22:31:01.944+0000] {logging_mixin.py:149} INFO - emo rap
+[2023-05-07T22:31:02.188+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-07T22:31:02.289+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-07T22:31:02.404+0000] {logging_mixin.py:149} INFO - emo rap
+[2023-05-07T22:31:02.578+0000] {logging_mixin.py:149} INFO - indie pop rap
+[2023-05-07T22:31:02.805+0000] {logging_mixin.py:149} INFO - indonesian hip hop
+[2023-05-07T22:31:02.951+0000] {logging_mixin.py:149} INFO - canadian hip hop
+[2023-05-07T22:31:03.073+0000] {logging_mixin.py:149} INFO - glitchcore
+[2023-05-07T22:31:03.326+0000] {logging_mixin.py:149} INFO - emoplugg
+[2023-05-07T22:31:03.428+0000] {logging_mixin.py:149} INFO - glitchcore
+[2023-05-07T22:31:03.759+0000] {logging_mixin.py:149} INFO - pittsburgh rap
+[2023-05-07T22:31:03.900+0000] {logging_mixin.py:149} INFO - emo rap
+[2023-05-07T22:31:04.282+0000] {logging_mixin.py:149} INFO - indie hip hop
+[2023-05-07T22:31:04.491+0000] {logging_mixin.py:149} INFO - aesthetic rap
+[2023-05-07T22:31:04.808+0000] {logging_mixin.py:149} INFO - nyc rap
+[2023-05-07T22:31:04.909+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-07T22:31:05.057+0000] {logging_mixin.py:149} INFO - future bass
+[2023-05-07T22:31:05.462+0000] {logging_mixin.py:149} INFO - sad rap
+[2023-05-07T22:31:06.525+0000] {logging_mixin.py:149} INFO - alt z
+[2023-05-07T22:31:06.632+0000] {logging_mixin.py:149} INFO - sad rap
+[2023-05-07T22:31:06.904+0000] {logging_mixin.py:149} INFO - vapor trap
+[2023-05-07T22:31:07.081+0000] {logging_mixin.py:149} INFO - glitchcore
+[2023-05-07T22:31:07.432+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-07T22:31:07.533+0000] {logging_mixin.py:149} INFO - canadian contemporary r&b
+[2023-05-07T22:31:08.264+0000] {logging_mixin.py:149} INFO - deep underground hip hop
+[2023-05-07T22:31:08.543+0000] {logging_mixin.py:149} INFO - bedroom soul
+[2023-05-07T22:31:08.639+0000] {logging_mixin.py:149} INFO - canadian hip hop
+[2023-05-07T22:31:09.002+0000] {logging_mixin.py:149} INFO - la pop
+[2023-05-07T22:31:09.105+0000] {logging_mixin.py:149} INFO - emo rap
+[2023-05-07T22:31:09.324+0000] {logging_mixin.py:149} INFO - indie pop rap
+[2023-05-07T22:31:09.528+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-07T22:31:09.658+0000] {logging_mixin.py:149} INFO - canadian contemporary r&b
+[2023-05-07T22:31:10.126+0000] {logging_mixin.py:149} INFO - st louis rap
+[2023-05-07T22:31:10.346+0000] {logging_mixin.py:149} INFO - atl hip hop
+[2023-05-07T22:31:10.546+0000] {local_task_job_runner.py:299} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2023-05-07T22:31:10.548+0000] {process_utils.py:135} INFO - Sending Signals.SIGTERM to group 1751. PIDs of all processes in the group: [1751]
+[2023-05-07T22:31:10.548+0000] {process_utils.py:86} INFO - Sending the signal Signals.SIGTERM to group 1751
+[2023-05-07T22:31:10.549+0000] {taskinstance.py:1540} ERROR - Received SIGTERM. Terminating subprocesses.
+[2023-05-07T22:31:10.561+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/extract.py", line 109, in get_artist_info
+    r = requests.get(BASE_URL + 'artists/' + id, headers=headers)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 498, in send
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/lib/python3.7/http/client.py", line 1373, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.7/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/lib/python3.7/http/client.py", line 280, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/local/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/local/lib/python3.7/ssl.py", line 1071, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/local/lib/python3.7/ssl.py", line 929, in read
+    return self._sslobj.read(len, buffer)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1542, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2023-05-07T22:31:10.566+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=Summer_Warped_ETL, task_id=GetArtistInfo, execution_date=20230507T215425, start_date=20230507T223100, end_date=20230507T223110
+[2023-05-07T22:31:10.574+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 1171 for task GetArtistInfo (Task received SIGTERM signal; 1751)
+[2023-05-07T22:31:10.603+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=1751, status='terminated', exitcode=1, started='22:30:59') (1751) terminated with exit code 1

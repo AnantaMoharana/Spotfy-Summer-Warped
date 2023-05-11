@@ -1,0 +1,284 @@
+[2023-05-09T02:08:42.082+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.LoadArtistDim manual__2023-05-08T16:09:58.195696+00:00 [queued]>
+[2023-05-09T02:08:42.087+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.LoadArtistDim manual__2023-05-08T16:09:58.195696+00:00 [queued]>
+[2023-05-09T02:08:42.088+0000] {taskinstance.py:1331} INFO - Starting attempt 7 of 9
+[2023-05-09T02:08:42.095+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): LoadData.LoadArtistDim> on 2023-05-08 16:09:58.195696+00:00
+[2023-05-09T02:08:42.099+0000] {standard_task_runner.py:57} INFO - Started process 5943 to run task
+[2023-05-09T02:08:42.103+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'LoadData.LoadArtistDim', 'manual__2023-05-08T16:09:58.195696+00:00', '--job-id', '2668', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmpa0jex84j']
+[2023-05-09T02:08:42.104+0000] {standard_task_runner.py:85} INFO - Job 2668: Subtask LoadData.LoadArtistDim
+[2023-05-09T02:08:42.137+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.LoadData.LoadArtistDim manual__2023-05-08T16:09:58.195696+00:00 [running]> on host 7b4753e133cb
+[2023-05-09T02:08:42.188+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='LoadData.LoadArtistDim' AIRFLOW_CTX_EXECUTION_DATE='2023-05-08T16:09:58.195696+00:00' AIRFLOW_CTX_TRY_NUMBER='7' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-08T16:09:58.195696+00:00'
+[2023-05-09T02:08:42.191+0000] {logging_mixin.py:149} INFO - 2023-05/artist_dim.csv
+[2023-05-09T02:08:42.197+0000] {base.py:73} INFO - Using connection ID 'aws_connection' for task execution.
+[2023-05-09T02:08:42.198+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_connection', conn_type='aws') credentials retrieved from login and password.
+[2023-05-09T02:08:42.376+0000] {logging_mixin.py:149} INFO -   artist_name               artist_id      genre
+0         Sky  62UdSpLGWjDU75OAFKLxWV        NaN
+1       abbot  0Ro9LZA0sRl1FG66KgsA1u        NaN
+2     guardin  6zqcGQ6MH6yetBUoquMnL7  cloud rap
+3  gravehours  5cwtCGap3COvJNt1yineor        NaN
+4   50landing  5aTRa02UP1y6PW5klZiTt0        NaN
+[2023-05-09T02:08:42.377+0000] {logging_mixin.py:149} INFO - INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre
+[2023-05-09T02:08:42.383+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:42.390+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Sky', '62UdSpLGWjDU75OAFKLxWV', nan)
+[2023-05-09T02:08:42.392+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:42.400+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:42.412+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('abbot', '0Ro9LZA0sRl1FG66KgsA1u', nan)
+[2023-05-09T02:08:42.413+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:42.420+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:42.426+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('guardin', '6zqcGQ6MH6yetBUoquMnL7', 'cloud rap')
+[2023-05-09T02:08:42.428+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:42.434+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:42.441+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('gravehours', '5cwtCGap3COvJNt1yineor', nan)
+[2023-05-09T02:08:42.443+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:42.449+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:42.455+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('50landing', '5aTRa02UP1y6PW5klZiTt0', nan)
+[2023-05-09T02:08:42.456+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:42.462+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.501+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('brakence', '4kqFrZkeqDfOIEqTWqbOOV', 'glitchcore')
+[2023-05-09T02:08:47.505+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.519+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.531+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Atlas in Motion', '1N9JxmOPJqhMCw219uoEi8', nan)
+[2023-05-09T02:08:47.533+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.541+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.551+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('93FEETOFSMOKE', '0plNgbIlOc13T8ot3vyK79', 'cloud rap')
+[2023-05-09T02:08:47.552+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.558+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.566+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('brody', '0t7bbGUdyq3urfDddwXhdY', 'emo rap')
+[2023-05-09T02:08:47.567+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.573+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.580+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Roderick Porter', '7Lcln0AXqNHMahrca8KVpy', 'aesthetic rap')
+[2023-05-09T02:08:47.582+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.587+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.596+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('SypSki', '3XOHHfvBYKCMo1h0DFY27z', nan)
+[2023-05-09T02:08:47.598+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.603+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.611+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('raspy', '1trffosn0Alk3IlloOD5O8', 'pittsburgh rap')
+[2023-05-09T02:08:47.612+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.618+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.625+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Landon Cube', '04ei5kNgmDuNAydFhhIHnD', 'vapor trap')
+[2023-05-09T02:08:47.627+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.633+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.640+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Oliver Francis', '0WvTK38rXqPCD5pZMDuX20', 'cloud rap')
+[2023-05-09T02:08:47.641+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.647+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.654+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Aries', '3hOdow4ZPmrby7Q1wfPLEy', nan)
+[2023-05-09T02:08:47.656+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.662+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.668+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('elias', '7eRBEVzcZk4XyIdF0Btfg4', 'lo-fi rap')
+[2023-05-09T02:08:47.670+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.676+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.683+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('MostlyEverything', '3Ae7AQITxFS0r3yGQHYDJI', 'upstate ny rap')
+[2023-05-09T02:08:47.686+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.691+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.700+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Foreign Forest', '7C4ztJMkuGRy0qkU6dG5hU', 'emo rap')
+[2023-05-09T02:08:47.701+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.707+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.714+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Ashes', '0vUk0rbl0BkFjmeFvjOvoj', nan)
+[2023-05-09T02:08:47.715+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.722+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.729+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('blackbear', '2cFrymmkijnjDg9SS92EPM', 'alt z')
+[2023-05-09T02:08:47.731+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.737+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.743+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('6 Dogs', '3Ps6le7tj5BdNtdnfNgTU4', 'cloud rap')
+[2023-05-09T02:08:47.745+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.751+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.758+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Pretty Pacc', '2QuPPChZpqAai29uqulNFe', nan)
+[2023-05-09T02:08:47.760+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.766+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.774+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('SAIAH', '5ZPYeVqoWNuukwfarvkyJX', nan)
+[2023-05-09T02:08:47.776+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.782+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.791+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Lucy Fer', '0BxHc5dN9BSfLZ8PCch9wT', nan)
+[2023-05-09T02:08:47.793+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.799+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.805+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Sleepa', '1iT8Vbd7KhZiBji3G72zDW', nan)
+[2023-05-09T02:08:47.807+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.813+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.820+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('glaive', '4cJKDGSv4Dz9QycXYmo565', 'glitchcore')
+[2023-05-09T02:08:47.823+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.829+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.836+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('kaido', '0UENogXhLeGTZjub4eejjX', 'hyperpop')
+[2023-05-09T02:08:47.838+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.844+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.850+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('kurtains', '7b2FbxYmnpGMPqDe04QmyP', 'emoplugg')
+[2023-05-09T02:08:47.852+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.859+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.866+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Numl6ck', '2anlj4dNUn9I1VxxmjRHRx', 'glitchcore')
+[2023-05-09T02:08:47.868+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.874+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.881+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Deadman Era', '4FI4qPOnjt3D8DnJQrNWps', nan)
+[2023-05-09T02:08:47.882+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.889+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.896+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Lund', '5uLkZ7FWMTBUg1corQqdkR', 'cloud rap')
+[2023-05-09T02:08:47.897+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.904+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.910+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Lil Cobaine', '0ILo2K3FmfIh4ICcbHE7RK', nan)
+[2023-05-09T02:08:47.912+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.918+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.925+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('ilham', '0r7PsZB4ePA6vHrW4agoGN', nan)
+[2023-05-09T02:08:47.926+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.933+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.939+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Angelo Mota', '1PpFka2STGQ57kJcgYBgEF', 'indie hip hop')
+[2023-05-09T02:08:47.941+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.947+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.955+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Xuitcasecity', '6YxrfNCKBcQlbITpmDLErL', 'indie pop rap')
+[2023-05-09T02:08:47.957+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.964+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.972+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('benny mayne', '2R2Yg2qPloNOTOfqxfXX7l', 'canadian contemporary r&b')
+[2023-05-09T02:08:47.973+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.979+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:47.988+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Isekai', '4yOY5zmuuTlS1DbG3yZGki', nan)
+[2023-05-09T02:08:47.990+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:47.995+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.003+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Lil Rae', '7iVscW49OWowl9SoLmWzfy', nan)
+[2023-05-09T02:08:48.004+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.010+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.016+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('916frosty', '6c0lj01vVpHsCH7Z5CfJ9K', 'emo rap')
+[2023-05-09T02:08:48.018+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.024+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.031+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Marco Luka', '4tjqHer0BFQbJ1FVyWhffM', nan)
+[2023-05-09T02:08:48.033+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.039+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.045+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('COTIS', '63CZNEytugjFnZBdjBmWc8', 'canadian contemporary r&b')
+[2023-05-09T02:08:48.047+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.052+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.059+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('diveliner', '0be7y7HUvSBf8uG1X7pK8f', nan)
+[2023-05-09T02:08:48.060+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.066+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.073+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Young Lungs', '2trvlbfMS5zVozEmrFNDTJ', 'canadian hip hop')
+[2023-05-09T02:08:48.075+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.080+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.087+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Darko', '63dmB3SM4vOZ8rK1EX5IkU', 'sad rap')
+[2023-05-09T02:08:48.089+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.095+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.101+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('24kGoldn', '6fWVd57NKTalqvmjRd2t8Z', 'cali rap')
+[2023-05-09T02:08:48.103+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.109+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.115+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('convolk', '3ddT1Q3KQAm1G7UcIfz5KJ', 'cloud rap')
+[2023-05-09T02:08:48.116+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.122+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.129+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Sevant', '47SwNXPh17mIDcZwsCr6hX', nan)
+[2023-05-09T02:08:48.131+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.137+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.143+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Lui Joseph', '7MS7B4QRp1n6c5H8N7s3wB', 'sad rap')
+[2023-05-09T02:08:48.145+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.151+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.158+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Josh Golden', '6wUAn24MOirNVNqQM47fda', 'la pop')
+[2023-05-09T02:08:48.159+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.165+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.172+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('ATO', '4KoNbDwbCK9D04dSmYG93E', nan)
+[2023-05-09T02:08:48.174+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.181+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.188+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Felly', '2848adRcxvgWNRcz1g1tQD', 'indie pop rap')
+[2023-05-09T02:08:48.190+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.196+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.203+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('RIZ LA VIE', '0QkgnHpxSCOYdTnhUR9S5k', 'bedroom soul')
+[2023-05-09T02:08:48.205+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.211+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.217+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Tommy Ice', '3AUIYVmhwrsw8UOPHEv91Z', 'emo rap')
+[2023-05-09T02:08:48.218+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.224+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.231+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Andrew Spacey', '71EAlWYAa5jb4phZIOlp7u', 'st louis rap')
+[2023-05-09T02:08:48.232+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.239+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.245+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('aldn', '2GUw9Wzha61PkZoRVv1PDD', 'glitchcore')
+[2023-05-09T02:08:48.246+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.252+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.258+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('RONEN', '3wDeS1sr05fxaOeiJJrOnL', 'aesthetic rap')
+[2023-05-09T02:08:48.259+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.267+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.274+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Elroy', '1OP39gZ2SXVnwg4NrARmsu', 'hyperpop')
+[2023-05-09T02:08:48.275+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.282+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.290+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('44phantom', '1vwwjIPFeYoRfAUCqqO6cZ', nan)
+[2023-05-09T02:08:48.292+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.298+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.306+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Ramzoid', '2Ci3Sflo2BfC77wTwn2hbH', 'future bass')
+[2023-05-09T02:08:48.308+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.314+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.320+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('GOLDHOUSE', '670UISOh9XV1zlq5z5IfoY', 'pop edm')
+[2023-05-09T02:08:48.322+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.328+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.337+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('dying in designer', '3QZxOYl5zlZtfigtXOZsfT', 'emo rap')
+[2023-05-09T02:08:48.339+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.345+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.351+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Kota the Friend', '2AfU5LYBVCiCtuCCfM7uVX', 'underground hip hop')
+[2023-05-09T02:08:48.353+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.358+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.365+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Marlon Craft', '7MigDh04CCntQbsBvugEmb', 'nyc rap')
+[2023-05-09T02:08:48.367+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.372+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.381+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('SEBASTIAN PAUL', '1tQu5TjcAK68fx8qrc8ZgF', nan)
+[2023-05-09T02:08:48.382+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.388+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.396+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Max Wells', '0Kx7qYhFiv0YD5lxEG1nsz', nan)
+[2023-05-09T02:08:48.398+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.404+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.411+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Gomey', '5ibWbhA0IkPT3xCN0YicRL', nan)
+[2023-05-09T02:08:48.413+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.418+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.428+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Christian French', '7naAJDAh7AZnf18YYfQruM', 'alt z')
+[2023-05-09T02:08:48.429+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.435+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.441+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('tsubi club', '6fHEaFnFgMxMAtDt7mFoQ3', 'hyperpop')
+[2023-05-09T02:08:48.442+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.448+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.455+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Vwillz', '0S7eN9KAsbAaIZtFyCn1q1', nan)
+[2023-05-09T02:08:48.456+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.462+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.468+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Kevin Powers', '4X8TR9pBFyewFlIDYt1o2s', nan)
+[2023-05-09T02:08:48.470+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.476+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.484+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Brennan', '5UrcghjIlj83Jf7QjZfBhZ', nan)
+[2023-05-09T02:08:48.485+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.491+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.497+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Rawska', '3pob90yrusjcbgSYFKaeAk', 'cloud rap')
+[2023-05-09T02:08:48.499+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.505+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.511+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Ghostrage', '7BoBxrm9jJ7us6U92oqr4N', nan)
+[2023-05-09T02:08:48.513+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.518+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.526+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Cold Hart', '1fsCfvdiomqjKJFR6xI8e4', 'cloud rap')
+[2023-05-09T02:08:48.528+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.535+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.541+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Hovey Benjamin', '7wSr4otUV4ytUvHE4w3rBe', 'meme rap')
+[2023-05-09T02:08:48.543+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.549+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.554+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Yung Pinch', '61qMnYXa1GxSBoV3IiYKjZ', 'melodic rap')
+[2023-05-09T02:08:48.556+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.562+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.568+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('underscores', '7HfUJxeVTgrvhk0eWHFzV7', 'hyperpop')
+[2023-05-09T02:08:48.570+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.575+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.582+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('MASN', '4HAfqyKr4Sqtab6ttHWXgE', 'sad rap')
+[2023-05-09T02:08:48.583+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.589+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.595+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('VIC MENSA', '27w1NoOLMX7tJMYqcetPyG', 'canadian hip hop')
+[2023-05-09T02:08:48.597+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.602+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.609+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('mike.', '5G9kmDLg3OeUyj8KVBLzbu', 'indie pop rap')
+[2023-05-09T02:08:48.611+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.616+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.624+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('POORSTACY', '7vSY9HEreOqb1Llar3UC38', 'emo rap')
+[2023-05-09T02:08:48.626+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.632+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.639+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('nothing,nowhere.', '7FngGIEGgN3Iwauw1MvO4P', 'cloud rap')
+[2023-05-09T02:08:48.640+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.646+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.652+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('han.irl <3', '5VfSeZYcDwD8WQVwbaoL6z', nan)
+[2023-05-09T02:08:48.654+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.660+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.666+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('login', '5JZPSVFMUk4HGDdx68lN77', 'hyperpop')
+[2023-05-09T02:08:48.667+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.673+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.679+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('静的 Static', '6rEjEIfp3NSRteU3kJGSET', 'emo rap')
+[2023-05-09T02:08:48.681+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.688+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.697+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('Rich Brian', '2IDLDx25HU1nQMKde4n61a', 'indonesian hip hop')
+[2023-05-09T02:08:48.699+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.706+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T02:08:48.714+0000] {sql.py:375} INFO - Running statement: INSERT INTO artist_dim (artist_name,artist_id,genre) VALUES (%s,%s,%s) ON CONFLICT (artist_id) DO UPDATE SET artist_name=EXCLUDED.artist_name,artist_id=EXCLUDED.artist_id,genre=EXCLUDED.genre, parameters: ('88rising', '1AhjOkOLkbHUfcHDSErXQs', 'asian american hip hop')
+[2023-05-09T02:08:48.716+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T02:08:48.717+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-09T02:08:48.727+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Summer_Warped_ETL, task_id=LoadData.LoadArtistDim, execution_date=20230508T160958, start_date=20230509T020842, end_date=20230509T020848
+[2023-05-09T02:08:48.762+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-09T02:08:48.782+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,45 @@
+[2023-05-07T22:32:53.320+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.Load manual__2023-05-07T21:54:25.314545+00:00 [queued]>
+[2023-05-07T22:32:53.326+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.Load manual__2023-05-07T21:54:25.314545+00:00 [queued]>
+[2023-05-07T22:32:53.326+0000] {taskinstance.py:1331} INFO - Starting attempt 19 of 19
+[2023-05-07T22:32:53.333+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): LoadData.Load> on 2023-05-07 21:54:25.314545+00:00
+[2023-05-07T22:32:53.338+0000] {standard_task_runner.py:57} INFO - Started process 2037 to run task
+[2023-05-07T22:32:53.341+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'LoadData.Load', 'manual__2023-05-07T21:54:25.314545+00:00', '--job-id', '1226', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmpazf5vlyq']
+[2023-05-07T22:32:53.342+0000] {standard_task_runner.py:85} INFO - Job 1226: Subtask LoadData.Load
+[2023-05-07T22:32:53.375+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.LoadData.Load manual__2023-05-07T21:54:25.314545+00:00 [running]> on host 31774baccecb
+[2023-05-07T22:32:53.425+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='LoadData.Load' AIRFLOW_CTX_EXECUTION_DATE='2023-05-07T21:54:25.314545+00:00' AIRFLOW_CTX_TRY_NUMBER='19' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-07T21:54:25.314545+00:00'
+[2023-05-07T22:32:53.426+0000] {logging_mixin.py:149} INFO - song_dim
+[2023-05-07T22:32:53.433+0000] {base.py:73} INFO - Using connection ID 'aws_connection' for task execution.
+[2023-05-07T22:32:53.433+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_connection', conn_type='aws') credentials retrieved from login and password.
+[2023-05-07T22:32:53.570+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/load.py", line 27, in upload_to_database
+    df = hook.read_key(key, s3_bucket)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 111, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 82, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 558, in read_key
+    obj = self.get_key(key, bucket_name)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 111, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 82, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 542, in get_key
+    obj.load()
+  File "/home/airflow/.local/lib/python3.7/site-packages/boto3/resources/factory.py", line 564, in do_action
+    response = action(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/boto3/resources/action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/client.py", line 530, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/client.py", line 960, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (404) when calling the HeadObject operation: Not Found
+[2023-05-07T22:32:53.580+0000] {taskinstance.py:1373} INFO - Marking task as FAILED. dag_id=Summer_Warped_ETL, task_id=LoadData.Load, execution_date=20230507T215425, start_date=20230507T223253, end_date=20230507T223253
+[2023-05-07T22:32:53.587+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 1226 for task LoadData.Load (An error occurred (404) when calling the HeadObject operation: Not Found; 2037)
+[2023-05-07T22:32:53.635+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-07T22:32:53.651+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

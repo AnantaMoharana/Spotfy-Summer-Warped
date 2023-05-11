@@ -1,0 +1,24 @@
+[2023-05-07T22:11:50.683+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.Load manual__2023-05-07T21:54:25.314545+00:00 [queued]>
+[2023-05-07T22:11:50.691+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.Load manual__2023-05-07T21:54:25.314545+00:00 [queued]>
+[2023-05-07T22:11:50.691+0000] {taskinstance.py:1331} INFO - Starting attempt 7 of 9
+[2023-05-07T22:11:50.701+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): LoadData.Load> on 2023-05-07 21:54:25.314545+00:00
+[2023-05-07T22:11:50.711+0000] {standard_task_runner.py:57} INFO - Started process 994 to run task
+[2023-05-07T22:11:50.718+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'LoadData.Load', 'manual__2023-05-07T21:54:25.314545+00:00', '--job-id', '1077', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmpqrd803pt']
+[2023-05-07T22:11:50.719+0000] {standard_task_runner.py:85} INFO - Job 1077: Subtask LoadData.Load
+[2023-05-07T22:11:50.775+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.LoadData.Load manual__2023-05-07T21:54:25.314545+00:00 [running]> on host 31774baccecb
+[2023-05-07T22:11:50.845+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='LoadData.Load' AIRFLOW_CTX_EXECUTION_DATE='2023-05-07T21:54:25.314545+00:00' AIRFLOW_CTX_TRY_NUMBER='7' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-07T21:54:25.314545+00:00'
+[2023-05-07T22:11:50.846+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/load.py", line 26, in upload_to_database
+    df = pd.hook.download_file(key, s3_bucket)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/__init__.py", line 244, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'hook'
+[2023-05-07T22:11:50.853+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=Summer_Warped_ETL, task_id=LoadData.Load, execution_date=20230507T215425, start_date=20230507T221150, end_date=20230507T221150
+[2023-05-07T22:11:50.860+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 1077 for task LoadData.Load (module 'pandas' has no attribute 'hook'; 994)
+[2023-05-07T22:11:50.885+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-07T22:11:50.904+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

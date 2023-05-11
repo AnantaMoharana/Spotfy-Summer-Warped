@@ -1,0 +1,71 @@
+[2023-05-08T03:41:50.022+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.GetArtistInfo manual__2023-05-08T03:41:45.546920+00:00 [queued]>
+[2023-05-08T03:41:50.027+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.GetArtistInfo manual__2023-05-08T03:41:45.546920+00:00 [queued]>
+[2023-05-08T03:41:50.027+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 3
+[2023-05-08T03:41:50.040+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): GetArtistInfo> on 2023-05-08 03:41:45.546920+00:00
+[2023-05-08T03:41:50.047+0000] {standard_task_runner.py:57} INFO - Started process 2254 to run task
+[2023-05-08T03:41:50.055+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'GetArtistInfo', 'manual__2023-05-08T03:41:45.546920+00:00', '--job-id', '1877', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmp7znpuehr']
+[2023-05-08T03:41:50.056+0000] {standard_task_runner.py:85} INFO - Job 1877: Subtask GetArtistInfo
+[2023-05-08T03:41:50.120+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.GetArtistInfo manual__2023-05-08T03:41:45.546920+00:00 [running]> on host a40687a10d43
+[2023-05-08T03:41:50.205+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='GetArtistInfo' AIRFLOW_CTX_EXECUTION_DATE='2023-05-08T03:41:45.546920+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-08T03:41:45.546920+00:00'
+[2023-05-08T03:41:50.378+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-08T03:41:50.566+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-08T03:41:50.777+0000] {logging_mixin.py:149} INFO - la pop
+[2023-05-08T03:41:50.896+0000] {logging_mixin.py:149} INFO - indie hip hop
+[2023-05-08T03:41:51.103+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-08T03:41:51.321+0000] {logging_mixin.py:149} INFO - aesthetic rap
+[2023-05-08T03:41:51.426+0000] {logging_mixin.py:149} INFO - emo rap
+[2023-05-08T03:41:51.527+0000] {logging_mixin.py:149} INFO - canadian contemporary r&b
+[2023-05-08T03:41:51.865+0000] {logging_mixin.py:149} INFO - deep underground hip hop
+[2023-05-08T03:41:52.062+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-08T03:41:52.163+0000] {logging_mixin.py:149} INFO - underground hip hop
+[2023-05-08T03:41:52.359+0000] {logging_mixin.py:149} INFO - st louis rap
+[2023-05-08T03:41:52.451+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-08T03:41:52.629+0000] {logging_mixin.py:149} INFO - canadian contemporary r&b
+[2023-05-08T03:41:52.818+0000] {logging_mixin.py:149} INFO - asian american hip hop
+[2023-05-08T03:41:53.011+0000] {logging_mixin.py:149} INFO - nyc rap
+[2023-05-08T03:41:53.207+0000] {logging_mixin.py:149} INFO - indie pop rap
+[2023-05-08T03:41:53.321+0000] {logging_mixin.py:149} INFO - bedroom soul
+[2023-05-08T03:41:53.410+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-08T03:41:53.505+0000] {logging_mixin.py:149} INFO - glitchcore
+[2023-05-08T03:41:53.596+0000] {logging_mixin.py:149} INFO - glitchcore
+[2023-05-08T03:41:53.693+0000] {logging_mixin.py:149} INFO - hyperpop
+[2023-05-08T03:41:53.778+0000] {logging_mixin.py:149} INFO - glitchcore
+[2023-05-08T03:41:53.874+0000] {logging_mixin.py:149} INFO - cali rap
+[2023-05-08T03:41:53.970+0000] {logging_mixin.py:149} INFO - sad rap
+[2023-05-08T03:41:54.161+0000] {logging_mixin.py:149} INFO - emo rap
+[2023-05-08T03:41:54.257+0000] {logging_mixin.py:149} INFO - indonesian hip hop
+[2023-05-08T03:41:54.446+0000] {logging_mixin.py:149} INFO - pop edm
+[2023-05-08T03:41:54.561+0000] {logging_mixin.py:149} INFO - upstate ny rap
+[2023-05-08T03:41:54.659+0000] {logging_mixin.py:149} INFO - hyperpop
+[2023-05-08T03:41:54.954+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-08T03:41:55.155+0000] {logging_mixin.py:149} INFO - emoplugg
+[2023-05-08T03:41:55.253+0000] {logging_mixin.py:149} INFO - emo rap
+[2023-05-08T03:41:55.381+0000] {logging_mixin.py:149} INFO - hyperpop
+[2023-05-08T03:41:55.480+0000] {logging_mixin.py:149} INFO - pittsburgh rap
+[2023-05-08T03:41:55.573+0000] {logging_mixin.py:149} INFO - alt z
+[2023-05-08T03:41:55.672+0000] {logging_mixin.py:149} INFO - canadian hip hop
+[2023-05-08T03:41:55.759+0000] {logging_mixin.py:149} INFO - canadian hip hop
+[2023-05-08T03:41:55.959+0000] {logging_mixin.py:149} INFO - aesthetic rap
+[2023-05-08T03:41:56.045+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-08T03:41:56.139+0000] {logging_mixin.py:149} INFO - cloud rap
+[2023-05-08T03:41:56.464+0000] {logging_mixin.py:149} INFO - alt z
+[2023-05-08T03:41:56.661+0000] {logging_mixin.py:149} INFO - emo rap
+[2023-05-08T03:41:56.763+0000] {logging_mixin.py:149} INFO - atl hip hop
+[2023-05-08T03:41:56.955+0000] {logging_mixin.py:149} INFO - hyperpop
+[2023-05-08T03:41:57.146+0000] {logging_mixin.py:149} INFO - meme rap
+[2023-05-08T03:41:57.244+0000] {logging_mixin.py:149} INFO - indie pop rap
+[2023-05-08T03:41:57.341+0000] {logging_mixin.py:149} INFO - emo rap
+[2023-05-08T03:41:57.439+0000] {logging_mixin.py:149} INFO - melodic rap
+[2023-05-08T03:41:57.534+0000] {logging_mixin.py:149} INFO - future bass
+[2023-05-08T03:41:57.625+0000] {logging_mixin.py:149} INFO - emo rap
+[2023-05-08T03:41:57.724+0000] {logging_mixin.py:149} INFO - glitchcore
+[2023-05-08T03:41:58.246+0000] {logging_mixin.py:149} INFO - sad rap
+[2023-05-08T03:41:58.378+0000] {logging_mixin.py:149} INFO - emo rap
+[2023-05-08T03:41:58.675+0000] {logging_mixin.py:149} INFO - vapor trap
+[2023-05-08T03:41:58.783+0000] {logging_mixin.py:149} INFO - hyperpop
+[2023-05-08T03:41:58.993+0000] {logging_mixin.py:149} INFO - lo-fi rap
+[2023-05-08T03:41:59.181+0000] {logging_mixin.py:149} INFO - sad rap
+[2023-05-08T03:41:59.287+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-08T03:41:59.296+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Summer_Warped_ETL, task_id=GetArtistInfo, execution_date=20230508T034145, start_date=20230508T034150, end_date=20230508T034159
+[2023-05-08T03:41:59.343+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-08T03:41:59.362+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

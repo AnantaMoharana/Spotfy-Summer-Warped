@@ -1,0 +1,28 @@
+[2023-05-06T22:59:19.928+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongFact.SongFactToS3 manual__2023-05-06T22:02:18.022658+00:00 [queued]>
+[2023-05-06T22:59:19.934+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongFact.SongFactToS3 manual__2023-05-06T22:02:18.022658+00:00 [queued]>
+[2023-05-06T22:59:19.935+0000] {taskinstance.py:1331} INFO - Starting attempt 19 of 21
+[2023-05-06T22:59:19.944+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): ValidateAndLoadSongFact.SongFactToS3> on 2023-05-06 22:02:18.022658+00:00
+[2023-05-06T22:59:19.951+0000] {standard_task_runner.py:57} INFO - Started process 1892 to run task
+[2023-05-06T22:59:19.958+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'ValidateAndLoadSongFact.SongFactToS3', 'manual__2023-05-06T22:02:18.022658+00:00', '--job-id', '479', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmpxsyjmdfr']
+[2023-05-06T22:59:19.962+0000] {standard_task_runner.py:85} INFO - Job 479: Subtask ValidateAndLoadSongFact.SongFactToS3
+[2023-05-06T22:59:20.008+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongFact.SongFactToS3 manual__2023-05-06T22:02:18.022658+00:00 [running]> on host b60ed7c33f68
+[2023-05-06T22:59:20.074+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='ValidateAndLoadSongFact.SongFactToS3' AIRFLOW_CTX_EXECUTION_DATE='2023-05-06T22:02:18.022658+00:00' AIRFLOW_CTX_TRY_NUMBER='19' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-06T22:02:18.022658+00:00'
+[2023-05-06T22:59:20.086+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/load.py", line 20, in stage_tables
+    replace=True
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 111, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 82, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 730, in load_string
+    bytes_data = string_data.encode(encoding)
+AttributeError: 'NoneType' object has no attribute 'encode'
+[2023-05-06T22:59:20.094+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=Summer_Warped_ETL, task_id=ValidateAndLoadSongFact.SongFactToS3, execution_date=20230506T220218, start_date=20230506T225919, end_date=20230506T225920
+[2023-05-06T22:59:20.101+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 479 for task ValidateAndLoadSongFact.SongFactToS3 ('NoneType' object has no attribute 'encode'; 1892)
+[2023-05-06T22:59:20.131+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-06T22:59:20.148+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

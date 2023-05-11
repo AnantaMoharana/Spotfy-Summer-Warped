@@ -1,0 +1,20 @@
+[2023-05-07T22:05:56.602+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.Load manual__2023-05-07T21:54:25.314545+00:00 [queued]>
+[2023-05-07T22:05:56.607+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.Load manual__2023-05-07T21:54:25.314545+00:00 [queued]>
+[2023-05-07T22:05:56.608+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 4
+[2023-05-07T22:05:56.615+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): LoadData.Load> on 2023-05-07 21:54:25.314545+00:00
+[2023-05-07T22:05:56.620+0000] {standard_task_runner.py:57} INFO - Started process 734 to run task
+[2023-05-07T22:05:56.624+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'LoadData.Load', 'manual__2023-05-07T21:54:25.314545+00:00', '--job-id', '1042', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmp99l4_vhq']
+[2023-05-07T22:05:56.624+0000] {standard_task_runner.py:85} INFO - Job 1042: Subtask LoadData.Load
+[2023-05-07T22:05:56.658+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.LoadData.Load manual__2023-05-07T21:54:25.314545+00:00 [running]> on host 31774baccecb
+[2023-05-07T22:05:56.708+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='LoadData.Load' AIRFLOW_CTX_EXECUTION_DATE='2023-05-07T21:54:25.314545+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-07T21:54:25.314545+00:00'
+[2023-05-07T22:05:56.709+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: upload_to_database() missing 1 required positional argument: 'key'
+[2023-05-07T22:05:56.716+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=Summer_Warped_ETL, task_id=LoadData.Load, execution_date=20230507T215425, start_date=20230507T220556, end_date=20230507T220556
+[2023-05-07T22:05:56.723+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 1042 for task LoadData.Load (upload_to_database() missing 1 required positional argument: 'key'; 734)
+[2023-05-07T22:05:56.755+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-07T22:05:56.775+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

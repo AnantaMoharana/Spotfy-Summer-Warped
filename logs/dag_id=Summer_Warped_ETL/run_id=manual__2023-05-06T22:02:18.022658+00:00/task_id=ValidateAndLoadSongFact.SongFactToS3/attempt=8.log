@@ -1,0 +1,22 @@
+[2023-05-06T22:45:03.026+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongFact.SongFactToS3 manual__2023-05-06T22:02:18.022658+00:00 [queued]>
+[2023-05-06T22:45:03.031+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongFact.SongFactToS3 manual__2023-05-06T22:02:18.022658+00:00 [queued]>
+[2023-05-06T22:45:03.032+0000] {taskinstance.py:1331} INFO - Starting attempt 8 of 10
+[2023-05-06T22:45:03.039+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): ValidateAndLoadSongFact.SongFactToS3> on 2023-05-06 22:02:18.022658+00:00
+[2023-05-06T22:45:03.045+0000] {standard_task_runner.py:57} INFO - Started process 1412 to run task
+[2023-05-06T22:45:03.049+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'ValidateAndLoadSongFact.SongFactToS3', 'manual__2023-05-06T22:02:18.022658+00:00', '--job-id', '422', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmp5v53pklo']
+[2023-05-06T22:45:03.049+0000] {standard_task_runner.py:85} INFO - Job 422: Subtask ValidateAndLoadSongFact.SongFactToS3
+[2023-05-06T22:45:03.084+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongFact.SongFactToS3 manual__2023-05-06T22:02:18.022658+00:00 [running]> on host b60ed7c33f68
+[2023-05-06T22:45:03.150+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='ValidateAndLoadSongFact.SongFactToS3' AIRFLOW_CTX_EXECUTION_DATE='2023-05-06T22:02:18.022658+00:00' AIRFLOW_CTX_TRY_NUMBER='8' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-06T22:02:18.022658+00:00'
+[2023-05-06T22:45:03.165+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/load.py", line 19, in stage_tables
+    data_key=datetime+'/'+file_name
+TypeError: unsupported operand type(s) for +: 'type' and 'str'
+[2023-05-06T22:45:03.173+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=Summer_Warped_ETL, task_id=ValidateAndLoadSongFact.SongFactToS3, execution_date=20230506T220218, start_date=20230506T224503, end_date=20230506T224503
+[2023-05-06T22:45:03.179+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 422 for task ValidateAndLoadSongFact.SongFactToS3 (unsupported operand type(s) for +: 'type' and 'str'; 1412)
+[2023-05-06T22:45:03.220+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-06T22:45:03.239+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

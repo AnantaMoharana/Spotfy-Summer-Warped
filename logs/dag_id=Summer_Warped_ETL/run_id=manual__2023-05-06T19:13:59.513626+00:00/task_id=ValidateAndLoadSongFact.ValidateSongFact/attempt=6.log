@@ -1,0 +1,52 @@
+[2023-05-06T19:27:40.069+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongFact.ValidateSongFact manual__2023-05-06T19:13:59.513626+00:00 [queued]>
+[2023-05-06T19:27:40.074+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongFact.ValidateSongFact manual__2023-05-06T19:13:59.513626+00:00 [queued]>
+[2023-05-06T19:27:40.075+0000] {taskinstance.py:1331} INFO - Starting attempt 6 of 6
+[2023-05-06T19:27:40.082+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): ValidateAndLoadSongFact.ValidateSongFact> on 2023-05-06 19:13:59.513626+00:00
+[2023-05-06T19:27:40.086+0000] {standard_task_runner.py:57} INFO - Started process 3622 to run task
+[2023-05-06T19:27:40.090+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'ValidateAndLoadSongFact.ValidateSongFact', 'manual__2023-05-06T19:13:59.513626+00:00', '--job-id', '233', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmpryh6oxzz']
+[2023-05-06T19:27:40.091+0000] {standard_task_runner.py:85} INFO - Job 233: Subtask ValidateAndLoadSongFact.ValidateSongFact
+[2023-05-06T19:27:40.127+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongFact.ValidateSongFact manual__2023-05-06T19:13:59.513626+00:00 [running]> on host 49f85d1317d0
+[2023-05-06T19:27:40.246+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='ValidateAndLoadSongFact.ValidateSongFact' AIRFLOW_CTX_EXECUTION_DATE='2023-05-06T19:13:59.513626+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-06T19:13:59.513626+00:00'
+[2023-05-06T19:27:40.247+0000] {logging_mixin.py:149} INFO -                     song_id  popularity        date
+0    7evQqGTWfKz8hIHzLVzneT          45  2023-05-06
+1    3PDNGdhCtiQemL14eKhCup          49  2023-05-06
+2    1bLEa8W1VVMFBIwp9hKYTL          44  2023-05-06
+3    7H74AdiJYM7hh4SYGrq9xe          53  2023-05-06
+4    2SWK4LJWLyev4yVYIVhjEV          33  2023-05-06
+..                      ...         ...         ...
+126  5bwSx1hwmUivlUgY9UhfEB          46  2023-05-06
+128  1Sl3gcmaeiU3vOMPpeM98V          51  2023-05-06
+129  7JdarpX08FLhmfNZpxqgUO          56  2023-05-06
+130  4TwVtW8hS5LyLoDtJGpUOg          62  2023-05-06
+132  30AnNG3dFbHLQuSbIVWEbF          47  2023-05-06
+
+[100 rows x 3 columns]
+[2023-05-06T19:27:40.247+0000] {logging_mixin.py:149} INFO - ['song_id', 'popularity', 'date']
+[2023-05-06T19:27:40.248+0000] {logging_mixin.py:149} INFO - song_fact
+[2023-05-06T19:27:40.248+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/transform.py", line 73, in validate_data
+    data_table=pd.read_json(data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 207, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/json/_json.py", line 614, in read_json
+    return json_reader.read()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/json/_json.py", line 748, in read
+    obj = self._get_object_parser(self.data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/json/_json.py", line 770, in _get_object_parser
+    obj = FrameParser(json, **kwargs).parse()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/json/_json.py", line 885, in parse
+    self._parse_no_numpy()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/json/_json.py", line 1140, in _parse_no_numpy
+    loads(json, precise_float=self.precise_float), dtype=None
+ValueError: Expected object or value
+[2023-05-06T19:27:40.256+0000] {taskinstance.py:1373} INFO - Marking task as FAILED. dag_id=Summer_Warped_ETL, task_id=ValidateAndLoadSongFact.ValidateSongFact, execution_date=20230506T191359, start_date=20230506T192740, end_date=20230506T192740
+[2023-05-06T19:27:40.263+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 233 for task ValidateAndLoadSongFact.ValidateSongFact (Expected object or value; 3622)
+[2023-05-06T19:27:40.301+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-06T19:27:40.317+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

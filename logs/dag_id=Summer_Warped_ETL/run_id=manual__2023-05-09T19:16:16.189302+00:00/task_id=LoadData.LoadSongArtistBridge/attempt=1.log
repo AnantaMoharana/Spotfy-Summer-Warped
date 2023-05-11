@@ -1,0 +1,443 @@
+[2023-05-09T19:17:06.268+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.LoadSongArtistBridge manual__2023-05-09T19:16:16.189302+00:00 [queued]>
+[2023-05-09T19:17:06.273+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.LoadData.LoadSongArtistBridge manual__2023-05-09T19:16:16.189302+00:00 [queued]>
+[2023-05-09T19:17:06.274+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 3
+[2023-05-09T19:17:06.281+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): LoadData.LoadSongArtistBridge> on 2023-05-09 19:16:16.189302+00:00
+[2023-05-09T19:17:06.286+0000] {standard_task_runner.py:57} INFO - Started process 449 to run task
+[2023-05-09T19:17:06.289+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'LoadData.LoadSongArtistBridge', 'manual__2023-05-09T19:16:16.189302+00:00', '--job-id', '3019', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmp08id57ky']
+[2023-05-09T19:17:06.290+0000] {standard_task_runner.py:85} INFO - Job 3019: Subtask LoadData.LoadSongArtistBridge
+[2023-05-09T19:17:06.323+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.LoadData.LoadSongArtistBridge manual__2023-05-09T19:16:16.189302+00:00 [running]> on host 4b5a01a6ab5f
+[2023-05-09T19:17:06.374+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='LoadData.LoadSongArtistBridge' AIRFLOW_CTX_EXECUTION_DATE='2023-05-09T19:16:16.189302+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-09T19:16:16.189302+00:00'
+[2023-05-09T19:17:06.376+0000] {logging_mixin.py:149} INFO - 2023-05/song_artist_bridge.csv
+[2023-05-09T19:17:06.383+0000] {base.py:73} INFO - Using connection ID 'aws_connection' for task execution.
+[2023-05-09T19:17:06.384+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_connection', conn_type='aws') credentials retrieved from login and password.
+[2023-05-09T19:17:06.651+0000] {logging_mixin.py:149} INFO -                   song_id               artist_id
+0  4N7i6RfJXMWfkx9Zr6pzkJ  6icQOAFXDZKsumw3YXyusw
+1  4N7i6RfJXMWfkx9Zr6pzkJ  4e5oZygHeeRoTXc00gYWiu
+2  4N7i6RfJXMWfkx9Zr6pzkJ  2rhFzFmezpnW82MNqEKVry
+3  4N7i6RfJXMWfkx9Zr6pzkJ  1m7LSAMIB1BErIHYSOn32W
+4  086THPnabbu1zfDjRsxpoN  0vqJkZ0RpLZixt3lTmD8vP
+[2023-05-09T19:17:06.652+0000] {logging_mixin.py:149} INFO - INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id
+[2023-05-09T19:17:06.660+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.666+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4N7i6RfJXMWfkx9Zr6pzkJ', '6icQOAFXDZKsumw3YXyusw')
+[2023-05-09T19:17:06.670+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.677+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.684+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4N7i6RfJXMWfkx9Zr6pzkJ', '4e5oZygHeeRoTXc00gYWiu')
+[2023-05-09T19:17:06.687+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.692+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.698+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4N7i6RfJXMWfkx9Zr6pzkJ', '2rhFzFmezpnW82MNqEKVry')
+[2023-05-09T19:17:06.700+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.706+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.711+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4N7i6RfJXMWfkx9Zr6pzkJ', '1m7LSAMIB1BErIHYSOn32W')
+[2023-05-09T19:17:06.714+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.720+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.725+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('086THPnabbu1zfDjRsxpoN', '0vqJkZ0RpLZixt3lTmD8vP')
+[2023-05-09T19:17:06.727+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.733+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.740+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('086THPnabbu1zfDjRsxpoN', '67MNhiAICFY6Pwc2YxCO0K')
+[2023-05-09T19:17:06.742+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.748+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.755+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5zsHmE2gO3RefVsPyw2e3T', '1wqW0IQWC7V7jktcjVHID6')
+[2023-05-09T19:17:06.758+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.765+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.770+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5zsHmE2gO3RefVsPyw2e3T', '1QvK8bFc2WREH4LDlJcJbi')
+[2023-05-09T19:17:06.772+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.779+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.785+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('55jQMevNp7aWtiW5LPlPoa', '1Bl6wpkWCQ4KVgnASpvzzA')
+[2023-05-09T19:17:06.787+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.793+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.799+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1GfBLbAhZUWdseuDqhocmn', '07CimrZi5vs9iEao47TNQ4')
+[2023-05-09T19:17:06.803+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.809+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.815+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1GfBLbAhZUWdseuDqhocmn', '4oLeXFyACqeem2VImYeBFe')
+[2023-05-09T19:17:06.817+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.823+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.829+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1GfBLbAhZUWdseuDqhocmn', '5he5w2lnU9x7JFhnwcekXX')
+[2023-05-09T19:17:06.831+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.837+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.843+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('40mjsnRjCpycdUw3xhS20g', '0Y5tJX1MQlPlqiwlOH1tJY')
+[2023-05-09T19:17:06.845+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.851+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.857+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('40mjsnRjCpycdUw3xhS20g', '0eDvMgVFoNV3TpwtrVCoTj')
+[2023-05-09T19:17:06.860+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.867+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.873+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('40mjsnRjCpycdUw3xhS20g', '7A8S43ryYdbWpJKeHRZRcq')
+[2023-05-09T19:17:06.876+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.882+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.888+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('7IMwEtpAiJanqF6vQteZN2', '0Y5tJX1MQlPlqiwlOH1tJY')
+[2023-05-09T19:17:06.890+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.896+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.901+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('7IMwEtpAiJanqF6vQteZN2', '2hlmm7s2ICUX0LVIhVFlZQ')
+[2023-05-09T19:17:06.904+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.910+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.917+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('7IMwEtpAiJanqF6vQteZN2', '7rkW85dBwwrJtlHRDkJDAC')
+[2023-05-09T19:17:06.919+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.925+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.931+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1kn9JsBWIw6qREhDWw0lKb', '75WcpJKWXBV3o3cfluWapK')
+[2023-05-09T19:17:06.934+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.940+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.947+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1kn9JsBWIw6qREhDWw0lKb', '6U3ybJ9UHNKEdsH7ktGBZ7')
+[2023-05-09T19:17:06.950+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.956+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.964+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1kn9JsBWIw6qREhDWw0lKb', '1iNqsUDUraNWrj00bqssQG')
+[2023-05-09T19:17:06.966+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.972+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.977+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('7d4n4e0kEEVsxl93xzWcvG', '6LkeKrsUCKIqD3DDIGrZHm')
+[2023-05-09T19:17:06.979+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.985+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:06.991+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('7d4n4e0kEEVsxl93xzWcvG', '0xx41UhM4CdtUvfqNZHhmF')
+[2023-05-09T19:17:06.993+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:06.999+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.005+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('7j6OJzMIJL5JcFHyeSJZGV', '6icQOAFXDZKsumw3YXyusw')
+[2023-05-09T19:17:07.008+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.014+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.019+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('7j6OJzMIJL5JcFHyeSJZGV', '7CCjtD0hCK005Bvg2WG1a7')
+[2023-05-09T19:17:07.021+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.027+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.033+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('3pqXhSXgasqhTf865mbpYi', '2RDOrhPqAM4jzTRCEb19qX')
+[2023-05-09T19:17:07.035+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.041+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.046+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('792HwhrdO3ErRKL5yRe4Ge', '0eDvMgVFoNV3TpwtrVCoTj')
+[2023-05-09T19:17:07.048+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.055+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.060+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1ITpqT1kDATCtMBwOK7sYn', '5SXuuuRpukkTvsLuUknva1')
+[2023-05-09T19:17:07.062+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.069+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.075+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4Mqfhqtb5WmondLWYsCCrz', '4ucIxjoWFS3n9KvguhTWpz')
+[2023-05-09T19:17:07.077+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.083+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.089+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4Mqfhqtb5WmondLWYsCCrz', '3H6CaRooDAoCeRCpYwOXj2')
+[2023-05-09T19:17:07.091+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.097+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.103+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4Mqfhqtb5WmondLWYsCCrz', '4nXOZlYoAD67hF9aUEncMY')
+[2023-05-09T19:17:07.106+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.113+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.120+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4Mqfhqtb5WmondLWYsCCrz', '2YOYua8FpudSEiB9s88IgQ')
+[2023-05-09T19:17:07.124+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.130+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.136+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('3HsFSrIsbO54TFDfG66pZm', '26JloX1vHxGGrGUVeMItFJ')
+[2023-05-09T19:17:07.138+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.144+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.149+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2wRHD4n81GyhlVMxYJ0nks', '4xRYI6VqpkE3UwrDrAZL8L')
+[2023-05-09T19:17:07.151+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.158+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.163+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5SWnsxjhdcEDc7LJjq9UHk', '0iEtIxbK0KxaSlF7G42ZOp')
+[2023-05-09T19:17:07.165+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.171+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.176+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5SWnsxjhdcEDc7LJjq9UHk', '1URnnhqYAYcrqrcwql10ft')
+[2023-05-09T19:17:07.178+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.184+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.189+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('6s24LFkjo06wYVpxJppovm', '7aA592KWirLsnfb5ulGWvU')
+[2023-05-09T19:17:07.193+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.200+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.205+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('6s24LFkjo06wYVpxJppovm', '1Bl6wpkWCQ4KVgnASpvzzA')
+[2023-05-09T19:17:07.207+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.213+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.219+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1udwFobQ1JoOdWPQrp2b6u', '3IJ21966TwNZI24MwZHMu4')
+[2023-05-09T19:17:07.221+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.227+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.232+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1udwFobQ1JoOdWPQrp2b6u', '1URnnhqYAYcrqrcwql10ft')
+[2023-05-09T19:17:07.235+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.240+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.248+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1udwFobQ1JoOdWPQrp2b6u', '6U3ybJ9UHNKEdsH7ktGBZ7')
+[2023-05-09T19:17:07.250+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.257+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.262+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('6vbJSbJelh7O22RnsdfouI', '27Owkm4TGlMqb0BqaEt3PW')
+[2023-05-09T19:17:07.264+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.270+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.276+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2HhzV3FY4eZGueF0KpXZUo', '1GzMtNyLiP1oM7yW0DyRhP')
+[2023-05-09T19:17:07.278+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.284+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.290+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('0pfP5XgWsu3uDB6NygGBEq', '2gW0M5fn2r7Lo4Hn1r8HZ5')
+[2023-05-09T19:17:07.293+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.299+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.304+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('3DWjFSDEQ9IWz1mj449fB7', '0eDvMgVFoNV3TpwtrVCoTj')
+[2023-05-09T19:17:07.308+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.314+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.319+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('38baHRHvx5hgtz0nhpAbEY', '7MdhgOG14jdWpchQuE14Ce')
+[2023-05-09T19:17:07.321+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.327+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.332+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('38baHRHvx5hgtz0nhpAbEY', '0x1B0bD5jSY4Py6VWB66Fe')
+[2023-05-09T19:17:07.335+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.341+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.347+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2cDCojn6uIBM6A5xTAbl3H', '4XqfpACObRB5AsBcUYjL8X')
+[2023-05-09T19:17:07.350+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.356+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.362+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2cDCojn6uIBM6A5xTAbl3H', '2YZyLoL8N0Wb9xBt1NhZWg')
+[2023-05-09T19:17:07.365+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.371+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:07.378+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('3k8zNjJqSj2sAraMuWeORL', '7sfl4Xt5KmfyDs2T3SVSMK')
+[2023-05-09T19:17:07.381+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:07.386+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.399+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('3k8zNjJqSj2sAraMuWeORL', '0399oiMcmbOzzsYQDNYqxn')
+[2023-05-09T19:17:12.401+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.408+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.415+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2084YzixBaKVtzODrmLV2K', '1URnnhqYAYcrqrcwql10ft')
+[2023-05-09T19:17:12.417+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.423+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.430+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2084YzixBaKVtzODrmLV2K', '6ZZbdExfJ764Y03ykOKyXf')
+[2023-05-09T19:17:12.432+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.438+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.446+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('6gbiTbclnHlmSIPfmF2zEc', '0RESbWvOMyua0yuyVrztJ5')
+[2023-05-09T19:17:12.448+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.454+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.460+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2jRmKc69qzGKzGU9SdH5u7', '6TIYQ3jFPwQSRmorSezPxX')
+[2023-05-09T19:17:12.462+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.469+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.476+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2Grb4G6t9VIqo6moKUloom', '1URnnhqYAYcrqrcwql10ft')
+[2023-05-09T19:17:12.478+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.484+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.492+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2Grb4G6t9VIqo6moKUloom', '0iEtIxbK0KxaSlF7G42ZOp')
+[2023-05-09T19:17:12.494+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.500+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.507+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4w7lBzX0EcDuy8tQLQvjC2', '6U3ybJ9UHNKEdsH7ktGBZ7')
+[2023-05-09T19:17:12.509+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.515+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.522+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4w7lBzX0EcDuy8tQLQvjC2', '3ipn9JLAPI5GUEo4y4jcoi')
+[2023-05-09T19:17:12.524+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.530+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.537+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4w7lBzX0EcDuy8tQLQvjC2', '67gqUXxHedeUGDTxwBzdjS')
+[2023-05-09T19:17:12.540+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.547+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.555+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5yl7WSp3mot0nepMQvfVi3', '6aiFCgyKNwF9Rv5TOxnE8E')
+[2023-05-09T19:17:12.557+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.564+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.571+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4h7qcXBtaOJnmrapxoWxGf', '4xRYI6VqpkE3UwrDrAZL8L')
+[2023-05-09T19:17:12.573+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.579+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.586+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4h7qcXBtaOJnmrapxoWxGf', '6C1ohJrd5VydigQtaGy5Wa')
+[2023-05-09T19:17:12.588+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.595+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.602+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('6LNoArVBBVZzUTUiAX2aKO', '5K4W6rqBFWDnAN6FQUkS6x')
+[2023-05-09T19:17:12.604+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.612+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.619+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5ClRKRmW1p6RQcdwzY1kNJ', '0RESbWvOMyua0yuyVrztJ5')
+[2023-05-09T19:17:12.621+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.627+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.634+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2YMCSqTmBTtcYA8dyUCvbT', '1URnnhqYAYcrqrcwql10ft')
+[2023-05-09T19:17:12.636+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.643+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.649+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5jbDih9bLGmI8ycUKkN5XA', '4xRYI6VqpkE3UwrDrAZL8L')
+[2023-05-09T19:17:12.651+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.657+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.664+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('6V81K1OcvYgHEnCA6A2Qx9', '3y2cIKLjiOlp1Np37WiUdH')
+[2023-05-09T19:17:12.666+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.671+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.678+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('6V81K1OcvYgHEnCA6A2Qx9', '6I3MElirhT5t6Kf7p0hGk9')
+[2023-05-09T19:17:12.680+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.686+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.693+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4yNoUQkYf1QF8iYlEzNynH', '1URnnhqYAYcrqrcwql10ft')
+[2023-05-09T19:17:12.695+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.701+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.708+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4yNoUQkYf1QF8iYlEzNynH', '3hcs9uc56yIGFCSy9leWe7')
+[2023-05-09T19:17:12.710+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.717+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.724+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4yNoUQkYf1QF8iYlEzNynH', '5QdEbQJ3ylBnc3gsIASAT5')
+[2023-05-09T19:17:12.726+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.732+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.741+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4yNoUQkYf1QF8iYlEzNynH', '0Njy6yR9LykNKYg9yE23QN')
+[2023-05-09T19:17:12.744+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.750+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.757+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4V9ynsDPwHtdItksqjuRu0', '0iEtIxbK0KxaSlF7G42ZOp')
+[2023-05-09T19:17:12.759+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.765+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.772+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4V9ynsDPwHtdItksqjuRu0', '1URnnhqYAYcrqrcwql10ft')
+[2023-05-09T19:17:12.775+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.781+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.787+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5MNfAmHvsqOliIxtwiFzsz', '2DXPtOc14uPVvK7qggj2a3')
+[2023-05-09T19:17:12.790+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.796+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.803+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('65ES1qwOB577ZnTkizMXJJ', '2YZyLoL8N0Wb9xBt1NhZWg')
+[2023-05-09T19:17:12.805+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.811+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.818+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('65ES1qwOB577ZnTkizMXJJ', '5he5w2lnU9x7JFhnwcekXX')
+[2023-05-09T19:17:12.820+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.826+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.833+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('7sO5G9EABYOXQKNPNiE9NR', '0iEtIxbK0KxaSlF7G42ZOp')
+[2023-05-09T19:17:12.835+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.841+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.849+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('7sO5G9EABYOXQKNPNiE9NR', '4DdkRBBYG6Yk9Ka8tdJ9BW')
+[2023-05-09T19:17:12.852+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.858+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.864+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('3QFInJAm9eyaho5vBzxInN', '2YZyLoL8N0Wb9xBt1NhZWg')
+[2023-05-09T19:17:12.866+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.872+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.879+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('3QFInJAm9eyaho5vBzxInN', '5SXuuuRpukkTvsLuUknva1')
+[2023-05-09T19:17:12.882+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.888+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.894+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('0NTypJrNfmemkF1GevCWSf', '4DdkRBBYG6Yk9Ka8tdJ9BW')
+[2023-05-09T19:17:12.896+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.901+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.907+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('0NTypJrNfmemkF1GevCWSf', '6i392l38cR3uBPF0DbNs7S')
+[2023-05-09T19:17:12.909+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.915+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.924+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4VESh0mf8QZlfF5OePL8XG', '6arIDNIrIQ8aJbrCvw726Q')
+[2023-05-09T19:17:12.926+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.932+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.938+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4VESh0mf8QZlfF5OePL8XG', '59dRwL9glTf6cqzs8lInjA')
+[2023-05-09T19:17:12.940+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.946+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.952+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4VESh0mf8QZlfF5OePL8XG', '26RbUG5k4CQf7raX64ADSe')
+[2023-05-09T19:17:12.956+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.962+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.968+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4VESh0mf8QZlfF5OePL8XG', '66T1y32NNXOz51okoaSu6v')
+[2023-05-09T19:17:12.971+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.978+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:12.987+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('7myke8Id4WyKFlWcRBJdIF', '2ye2Wgw4gimLv2eAKyk1NB')
+[2023-05-09T19:17:12.989+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:12.995+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.004+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4IO8X9W69dIQe0EC5ALXhq', '1URnnhqYAYcrqrcwql10ft')
+[2023-05-09T19:17:13.008+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.014+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.020+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('4fV8fZLi28Hk02euDxYbMQ', '3NMKl4WsJVuKnvYqzSbv7Q')
+[2023-05-09T19:17:13.022+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.028+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.034+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2QbGvQssb0VLLS4x5NOmyJ', '6fxyWrfmjcbj5d12gXeiNV')
+[2023-05-09T19:17:13.037+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.044+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.050+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5EIkdrmuu2xkoQWOWjoeFY', '47mIJdHORyRerp4os813jD')
+[2023-05-09T19:17:13.052+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.059+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.065+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5EIkdrmuu2xkoQWOWjoeFY', '57nPqD7z62gDdq37US9XJR')
+[2023-05-09T19:17:13.067+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.073+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.080+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5EIkdrmuu2xkoQWOWjoeFY', '4vZ5UD5pIliRPSdHHj9EUp')
+[2023-05-09T19:17:13.083+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.088+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.095+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5EIkdrmuu2xkoQWOWjoeFY', '0xukYGKRRwBWS1N9sfCQoq')
+[2023-05-09T19:17:13.098+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.104+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.111+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5EIkdrmuu2xkoQWOWjoeFY', '6fxyWrfmjcbj5d12gXeiNV')
+[2023-05-09T19:17:13.114+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.120+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.126+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('3CLSHJv5aUROAN2vfOyCOh', '0XFgyr4jwM0MGeZZW0VzA5')
+[2023-05-09T19:17:13.129+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.135+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.141+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2gZUPNdnz5Y45eiGxpHGSc', '5K4W6rqBFWDnAN6FQUkS6x')
+[2023-05-09T19:17:13.144+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.153+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.164+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1smcSwXObpmxcjCulmjMgy', '5K4W6rqBFWDnAN6FQUkS6x')
+[2023-05-09T19:17:13.168+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.175+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.181+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1smcSwXObpmxcjCulmjMgy', '3nFkdlSjzX9mRTtwJOzDYB')
+[2023-05-09T19:17:13.184+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.190+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.197+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5JY0ICTiZcuBjUcW26Tdmq', '3BYJl9McCY35iO9F0KHoiz')
+[2023-05-09T19:17:13.199+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.205+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.211+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5JY0ICTiZcuBjUcW26Tdmq', '1BZ5smaHoDSI2a61ErUch6')
+[2023-05-09T19:17:13.213+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.219+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.225+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('7MiZjKawmXTsTNePyTfPyL', '4dM6NDYSfLcspt8GLoT5aE')
+[2023-05-09T19:17:13.228+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.234+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.240+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2gtFMLjQpCTGekMi4oXZxN', '0NcPKaSNIHAM2RfioH9vMT')
+[2023-05-09T19:17:13.243+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.248+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.254+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2gtFMLjQpCTGekMi4oXZxN', '6PDLwWvgYNMfBRLqC1h5cJ')
+[2023-05-09T19:17:13.257+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.263+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.270+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2gtFMLjQpCTGekMi4oXZxN', '5MbNzCW3qokGyoo9giHA3V')
+[2023-05-09T19:17:13.273+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.279+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.286+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2gtFMLjQpCTGekMi4oXZxN', '6U3ybJ9UHNKEdsH7ktGBZ7')
+[2023-05-09T19:17:13.288+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.294+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.300+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2gtFMLjQpCTGekMi4oXZxN', '1iNqsUDUraNWrj00bqssQG')
+[2023-05-09T19:17:13.304+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.310+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.316+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('6J5fS7tEGgUwdrGQ0dWqi9', '5bQLHZXLiVPxi2Suodt3wV')
+[2023-05-09T19:17:13.318+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.324+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.330+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('6J5fS7tEGgUwdrGQ0dWqi9', '5dHt1vcEm9qb8fCyLcB3HL')
+[2023-05-09T19:17:13.332+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.338+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.345+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('3UoRLUFPhTSYqhbqSdlf1U', '6VlPp1wb53ANKMIwZPJfM0')
+[2023-05-09T19:17:13.347+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.353+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.359+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2YByIMqNtTb0T072UDfTo9', '2UqOfH9sWaoyHyOtlRNp7P')
+[2023-05-09T19:17:13.362+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.369+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.377+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5A32buYzWvtkJizBkX8OCQ', '3HLb9k75O3qP4GklxUGn7s')
+[2023-05-09T19:17:13.379+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.385+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.391+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('276zciJ7Fg7Jk6Ta6QuLkp', '3jK9MiCrA42lLAdMGUZpwa')
+[2023-05-09T19:17:13.394+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.401+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.408+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('6AGON2BGdPmPMJGiiNuuwl', '6l3HvQ5sa6mXTsMTB19rO5')
+[2023-05-09T19:17:13.411+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.418+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.427+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('61UU9qfuXmdFyqCSE7v5gz', '0SD4eZCN4Kr0wQk56hCdh2')
+[2023-05-09T19:17:13.429+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.436+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.442+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('48ZUwXrEOhaXLCxvmRYhZv', '6jHG1YQkqgojdEzerwvrVv')
+[2023-05-09T19:17:13.444+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.451+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.457+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('64wOkApsbsmVaMhqb1iPeq', '4VQP2ZGGyCDmZDaOReSaXj')
+[2023-05-09T19:17:13.459+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.465+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.472+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5x4vgABKiGp4Vg7ZyFRxhn', '2IDLDx25HU1nQMKde4n61a')
+[2023-05-09T19:17:13.474+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.480+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.486+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5x4vgABKiGp4Vg7ZyFRxhn', '1sBkRIssrMs1AbVkOJbc7a')
+[2023-05-09T19:17:13.488+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.495+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.502+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5x4vgABKiGp4Vg7ZyFRxhn', '540vIaP2JwjQb9dm3aArA4')
+[2023-05-09T19:17:13.506+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.512+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.519+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1r9xUipOqoNwggBpENDsvJ', '47mIJdHORyRerp4os813jD')
+[2023-05-09T19:17:13.521+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.528+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.535+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1r9xUipOqoNwggBpENDsvJ', '57nPqD7z62gDdq37US9XJR')
+[2023-05-09T19:17:13.537+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.544+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.551+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1r9xUipOqoNwggBpENDsvJ', '6U3ybJ9UHNKEdsH7ktGBZ7')
+[2023-05-09T19:17:13.554+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.560+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.568+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('1r9xUipOqoNwggBpENDsvJ', '53XhwfbYqKCa1cC15pYq2q')
+[2023-05-09T19:17:13.571+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.578+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.584+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5rTIpPWeO0IL4HWlGWrz5G', '7Ln80lUS6He07XvHI8qqHH')
+[2023-05-09T19:17:13.587+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.593+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.601+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('57bgtoPSgt236HzfBOd8kj', '711MCceyCBcFnzjGY4Q7Un')
+[2023-05-09T19:17:13.604+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.612+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.619+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('3ZTRTKx8uqpzqqWOA3JyNN', '1Z8ODXyhEBi3WynYw0Rya6')
+[2023-05-09T19:17:13.622+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.628+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.636+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('3ZTRTKx8uqpzqqWOA3JyNN', '5CE2IfdYZEQGIDsfiRm8SI')
+[2023-05-09T19:17:13.638+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.645+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.653+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('36J0iaPDGbYGsHvYpaYs3k', '5yPzzu25VzEk8qrGTLIrE1')
+[2023-05-09T19:17:13.655+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.661+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.669+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('36J0iaPDGbYGsHvYpaYs3k', '5MbNzCW3qokGyoo9giHA3V')
+[2023-05-09T19:17:13.671+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.678+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.688+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('36J0iaPDGbYGsHvYpaYs3k', '6l3HvQ5sa6mXTsMTB19rO5')
+[2023-05-09T19:17:13.691+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.697+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.704+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('36J0iaPDGbYGsHvYpaYs3k', '70gP6Ry4Uo0Yx6uzPIdaiJ')
+[2023-05-09T19:17:13.707+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.713+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.720+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('36J0iaPDGbYGsHvYpaYs3k', '6U3ybJ9UHNKEdsH7ktGBZ7')
+[2023-05-09T19:17:13.723+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.729+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.735+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('36J0iaPDGbYGsHvYpaYs3k', '1iNqsUDUraNWrj00bqssQG')
+[2023-05-09T19:17:13.738+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.744+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.753+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('0RbcDELsGTciLeMGsSdJAc', '26T3LtbuGT1Fu9m0eRq5X3')
+[2023-05-09T19:17:13.756+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.763+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.772+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('2IJI9wQqrZlCIXv3439Ign', '7dGJo4pcD2V6oG8kP0tJRR')
+[2023-05-09T19:17:13.775+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.781+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.788+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('7lQ8MOhq6IN2w8EYcFNSUk', '7dGJo4pcD2V6oG8kP0tJRR')
+[2023-05-09T19:17:13.791+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.797+0000] {base.py:73} INFO - Using connection ID '***' for task execution.
+[2023-05-09T19:17:13.808+0000] {sql.py:375} INFO - Running statement: INSERT INTO song_artist_bridge (song_id,artist_id) VALUES (%s,%s) ON CONFLICT (song_id,artist_id) DO UPDATE SET song_id=EXCLUDED.song_id,artist_id=EXCLUDED.artist_id, parameters: ('5xYps20oq3shRA3TZsSkPI', '7ueOlHsDGBjqZfjpDj4oJO')
+[2023-05-09T19:17:13.812+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-05-09T19:17:13.813+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-09T19:17:13.821+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Summer_Warped_ETL, task_id=LoadData.LoadSongArtistBridge, execution_date=20230509T191616, start_date=20230509T191706, end_date=20230509T191713
+[2023-05-09T19:17:13.874+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-09T19:17:13.894+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

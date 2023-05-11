@@ -1,0 +1,22 @@
+[2023-05-05T19:27:58.485+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.GetArtistInfo manual__2023-05-05T19:18:13.032704+00:00 [queued]>
+[2023-05-05T19:27:58.490+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.GetArtistInfo manual__2023-05-05T19:18:13.032704+00:00 [queued]>
+[2023-05-05T19:27:58.491+0000] {taskinstance.py:1331} INFO - Starting attempt 5 of 6
+[2023-05-05T19:27:58.499+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): GetArtistInfo> on 2023-05-05 19:18:13.032704+00:00
+[2023-05-05T19:27:58.503+0000] {standard_task_runner.py:57} INFO - Started process 197 to run task
+[2023-05-05T19:27:58.507+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'GetArtistInfo', 'manual__2023-05-05T19:18:13.032704+00:00', '--job-id', '54', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmpogewx1ur']
+[2023-05-05T19:27:58.507+0000] {standard_task_runner.py:85} INFO - Job 54: Subtask GetArtistInfo
+[2023-05-05T19:27:58.544+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.GetArtistInfo manual__2023-05-05T19:18:13.032704+00:00 [running]> on host ca49569c325a
+[2023-05-05T19:27:58.600+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='GetArtistInfo' AIRFLOW_CTX_EXECUTION_DATE='2023-05-05T19:18:13.032704+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-05T19:18:13.032704+00:00'
+[2023-05-05T19:28:00.414+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/extract.py", line 112, in get_artist_info
+    genre=r['genres'][0]
+IndexError: list index out of range
+[2023-05-05T19:28:00.439+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=Summer_Warped_ETL, task_id=GetArtistInfo, execution_date=20230505T191813, start_date=20230505T192758, end_date=20230505T192800
+[2023-05-05T19:28:00.452+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 54 for task GetArtistInfo (list index out of range; 197)
+[2023-05-05T19:28:00.499+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-05T19:28:00.518+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

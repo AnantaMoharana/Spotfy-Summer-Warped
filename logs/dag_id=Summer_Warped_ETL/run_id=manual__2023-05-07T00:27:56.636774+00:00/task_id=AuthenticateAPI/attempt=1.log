@@ -1,0 +1,14 @@
+[2023-05-07T00:27:58.926+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.AuthenticateAPI manual__2023-05-07T00:27:56.636774+00:00 [queued]>
+[2023-05-07T00:27:58.931+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.AuthenticateAPI manual__2023-05-07T00:27:56.636774+00:00 [queued]>
+[2023-05-07T00:27:58.932+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 3
+[2023-05-07T00:27:58.940+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): AuthenticateAPI> on 2023-05-07 00:27:56.636774+00:00
+[2023-05-07T00:27:58.945+0000] {standard_task_runner.py:57} INFO - Started process 540 to run task
+[2023-05-07T00:27:58.950+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'AuthenticateAPI', 'manual__2023-05-07T00:27:56.636774+00:00', '--job-id', '767', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmppvr5_m67']
+[2023-05-07T00:27:58.951+0000] {standard_task_runner.py:85} INFO - Job 767: Subtask AuthenticateAPI
+[2023-05-07T00:27:58.996+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.AuthenticateAPI manual__2023-05-07T00:27:56.636774+00:00 [running]> on host 61437508c2dd
+[2023-05-07T00:27:59.060+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='AuthenticateAPI' AIRFLOW_CTX_EXECUTION_DATE='2023-05-07T00:27:56.636774+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-07T00:27:56.636774+00:00'
+[2023-05-07T00:27:59.166+0000] {logging_mixin.py:149} INFO - BQDNoL4jSyKu9OaihjLsZ_AxK4hYEpdPP5UcmVMlbZ6f-SnqlwyjFV6WvArNLnxlxMxhUp__OtVfi42KlgQFgkVigmgBFNDcALohJ0N4mpVpyQ6m_an9
+[2023-05-07T00:27:59.178+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-07T00:27:59.187+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Summer_Warped_ETL, task_id=AuthenticateAPI, execution_date=20230507T002756, start_date=20230507T002758, end_date=20230507T002759
+[2023-05-07T00:27:59.244+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-07T00:27:59.269+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

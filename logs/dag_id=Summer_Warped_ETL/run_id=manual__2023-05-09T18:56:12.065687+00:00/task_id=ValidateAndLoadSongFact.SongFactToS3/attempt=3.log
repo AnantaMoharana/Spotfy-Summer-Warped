@@ -1,0 +1,15 @@
+[2023-05-09T19:10:32.900+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongFact.SongFactToS3 manual__2023-05-09T18:56:12.065687+00:00 [queued]>
+[2023-05-09T19:10:32.915+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongFact.SongFactToS3 manual__2023-05-09T18:56:12.065687+00:00 [queued]>
+[2023-05-09T19:10:32.916+0000] {taskinstance.py:1331} INFO - Starting attempt 3 of 5
+[2023-05-09T19:10:32.967+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): ValidateAndLoadSongFact.SongFactToS3> on 2023-05-09 18:56:12.065687+00:00
+[2023-05-09T19:10:32.977+0000] {standard_task_runner.py:57} INFO - Started process 155 to run task
+[2023-05-09T19:10:32.996+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Summer_Warped_ETL', 'ValidateAndLoadSongFact.SongFactToS3', 'manual__2023-05-09T18:56:12.065687+00:00', '--job-id', '2969', '--raw', '--subdir', 'DAGS_FOLDER/warped-dag.py', '--cfg-path', '/tmp/tmphiqty6qn']
+[2023-05-09T19:10:32.998+0000] {standard_task_runner.py:85} INFO - Job 2969: Subtask ValidateAndLoadSongFact.SongFactToS3
+[2023-05-09T19:10:33.153+0000] {task_command.py:410} INFO - Running <TaskInstance: Summer_Warped_ETL.ValidateAndLoadSongFact.SongFactToS3 manual__2023-05-09T18:56:12.065687+00:00 [running]> on host 4b5a01a6ab5f
+[2023-05-09T19:10:33.462+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ananta Moharana' AIRFLOW_CTX_DAG_ID='Summer_Warped_ETL' AIRFLOW_CTX_TASK_ID='ValidateAndLoadSongFact.SongFactToS3' AIRFLOW_CTX_EXECUTION_DATE='2023-05-09T18:56:12.065687+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-09T18:56:12.065687+00:00'
+[2023-05-09T19:10:33.575+0000] {base.py:73} INFO - Using connection ID 'aws_connection' for task execution.
+[2023-05-09T19:10:33.578+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_connection', conn_type='aws') credentials retrieved from login and password.
+[2023-05-09T19:10:35.066+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-09T19:10:35.104+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Summer_Warped_ETL, task_id=ValidateAndLoadSongFact.SongFactToS3, execution_date=20230509T185612, start_date=20230509T191032, end_date=20230509T191035
+[2023-05-09T19:10:35.325+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-09T19:10:35.433+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
