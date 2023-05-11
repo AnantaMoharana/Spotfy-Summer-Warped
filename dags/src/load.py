@@ -40,16 +40,3 @@ def upload_to_database(key,table,s3_bucket,primary_key):
     for value in values:
         postgres_hook.run(insert_sql, parameters=value)
 
-    # df.to_sql(name=table, con=postgres_hook.get_sqlalchemy_engine(), schema='summer_warped', if_exists='append', index=False)
-
-#Upload the date table to the database
-def upload_date():
-    today_str = datetime.today().strftime('%Y-%m-%d')
-    month=datetime.today().month
-    month_name=datetime.today().strftime("%B")
-    day_of_month=datetime.today().day
-    day_of_week=datetime.today().weekday()
-    day_name=datetime.today().strftime("%A")
-    quarter=(month -1) // 3 +1
-
-    print("")
