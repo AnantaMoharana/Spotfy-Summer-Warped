@@ -18,12 +18,17 @@ In this step, we transform the raw JSON data and get the needed information. We 
 **Load:** 
 In this step, we load the transformed data into the Postgres database. We do this buy using a Postgre hook which we create from a PostegreSQL connection we make in Airflow.
 
-**Below is what the Apache Airflow D.A.G (Directed Acyclical Graph) looks like for the ETL:**
+**Below is what the Apache Airflow D.A.G (Directed Acyclical Graph) looks like for the ETL**
 <img width="966" alt="Screenshot 2023-05-11 at 10 50 17 PM" src="https://github.com/AnantaMoharana/Spotify-Summer-Warped/assets/48960503/73e47b34-3a99-42b4-954f-ac419ef39758">
+This process is currently orchestrated to run on a monthly basis
 
-**Below is the data model for the database that holds all the data from the playlist:**
+**Below is the data model for the database that holds all the data from the playlist**
 <img width="957" alt="Screenshot 2023-05-11 at 5 51 32 PM" src="https://github.com/AnantaMoharana/Spotify-Summer-Warped/assets/48960503/0e9e403d-636c-41a0-bc02-3e5053f960a0">
 
+This database track how the popularity of the songs in the playlist and the popularity of its respective artists change from month to month.
+
+**Below is a small visualization of the playlist data for the month of May 2023**
+<img width="1486" alt="Screenshot 2023-05-11 at 3 48 47 PM" src="https://github.com/AnantaMoharana/Spotify-Summer-Warped/assets/48960503/20b4e9e7-d233-42c3-b394-4169f0f1af69">
 
 
 
