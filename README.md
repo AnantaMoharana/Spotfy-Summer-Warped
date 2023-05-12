@@ -30,5 +30,5 @@ This database track how the popularity of the songs in the playlist and the popu
 **Below is a small visualization of the playlist data for the month of May 2023**
 <img width="1486" alt="Screenshot 2023-05-11 at 3 48 47 PM" src="https://github.com/AnantaMoharana/Spotify-Summer-Warped/assets/48960503/20b4e9e7-d233-42c3-b394-4169f0f1af69">
 
-
+Finally, here is a link to my Summer 2023 playlist, hope you like it! https://open.spotify.com/playlist/5vOceoTWL0NykvywJv4rkc
 
