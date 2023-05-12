@@ -18,5 +18,12 @@ In this step, we transform the raw JSON data and get the needed information. We 
 **Load:** 
 In this step, we load the transformed data into the Postgres database. We do this buy using a Postgre hook which we create from a PostegreSQL connection we make in Airflow.
 
+**Below is what the Apache Airflow D.A.G (Directed Acyclical Graph) looks like for the ETL:**
+<img width="966" alt="Screenshot 2023-05-11 at 10 50 17 PM" src="https://github.com/AnantaMoharana/Spotify-Summer-Warped/assets/48960503/73e47b34-3a99-42b4-954f-ac419ef39758">
+
+**Below is the data model for the database that holds all the data from the playlist:**
+<img width="957" alt="Screenshot 2023-05-11 at 5 51 32 PM" src="https://github.com/AnantaMoharana/Spotify-Summer-Warped/assets/48960503/0e9e403d-636c-41a0-bc02-3e5053f960a0">
+
+
 
 
